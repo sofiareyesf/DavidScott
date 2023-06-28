@@ -1,5 +1,7 @@
+import Script from 'next/script'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import Head from 'next/head'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +17,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <Head>
+        <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
+      </Head>
+      <body className={inter.className}>
+        {children}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+              if (window.netlifyIdentity) {
+                window.netlifyIdentity.on("init", user => {
+                  if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                      document.location.href = "/admin/";
+                    });
+                  }
+                });
+              }
+          `}} />
+      </body>
     </html>
   )
 }
