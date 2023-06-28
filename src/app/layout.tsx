@@ -21,7 +21,7 @@ export default function RootLayout({
           src="https://identity.netlify.com/v1/netlify-identity-widget.js"
         />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-bgcol text-textcol`}>
         {children}
         <Script dangerouslySetInnerHTML={{
           __html: `

@@ -2,6 +2,10 @@ backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
 
+#site_url: https://mattausgretzinger.com
+#display_url: https://mattausgretzinger.com
+display_url: https://magical-figolla-d19d49.netlify.app/
+
 media_folder: "public/uploads" # Where media files will be stored
 public_folder: "/uploads" # Where the media files can be accesed from the server
 # publish_mode: editorial_workflow # For Drafts
@@ -16,3 +20,17 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: "HH:mm", format: "LLL"}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "gig"
+    label: "Gig"
+    folder: "content/gigs"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: name
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime", time_format: false}
+      - {label: "Start Time", name: "start", widget: "datetime", date_format: false}
+      - {label: "End Time", name: "end", widget: "datetime", date_format: false}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Address", name: "address", widget: "string"}
