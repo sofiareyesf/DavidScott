@@ -7,17 +7,20 @@ import GigCard from './gig-card';
 // import { BlogPostData } from '../lib/blog-posts'
 // import { markdownToHtml } from '../lib/markdown-processor'
 
-export default function GigCardPreview({ entry, widgetFor } : any) {
-  const gig = {
-    title: entry.getIn(['data', 'title']),
-    date: entry.getIn(['data', 'date']),
-    start: entry.getIn(['data', 'start']),
-    end: entry.getIn(['data', 'end']),
-    image: entry.getIn(['data', 'image']),
-    description: entry.getIn(['data', 'description']),
-    address: entry.getIn(['data', 'address']),
-  } as Gig;
+export default function GigCardPreview({ entry, getAsset }: any) {
+    const gig = {
+        title: entry.getIn(['data', 'title']),
+        date: entry.getIn(['data', 'date']),
+        start: entry.getIn(['data', 'start']),
+        end: entry.getIn(['data', 'end']),
+        image: getAsset(entry.getIn(['data', 'image'])).url,
+        description: entry.getIn(['data', 'description']),
+        address: entry.getIn(['data', 'address']),
+    } as Gig;
 
-
-  return <GigCard gig={gig} />
+    return (
+        <div className="w-full h-screen flex justify-center p-20 bg-bgcol text-textcol overflow-hidden">
+            <GigCard gig={gig} />
+        </div>
+    )
 }

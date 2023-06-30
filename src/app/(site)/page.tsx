@@ -1,7 +1,4 @@
 import Image from 'next/image'
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
 import Link from 'next/link'
 import getContent from '@/lib/get-content'
 import { Blog, Gig } from '@/lib/content-types'

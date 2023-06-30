@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-admin-css": "npx tailwindcss build -i .next/static/css/app/(site)/layout.css -o public/admin/main.css"
   },
   "dependencies": {
     "@types/node": "20.3.2",
