@@ -21,33 +21,55 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: "HH:mm", format: "LLL"}
       - {label: "Body", name: "body", widget: "markdown"}
-  - name: "gig"
-    label: "Gig"
-    folder: "content/gigs"
+  - name: "shows"
+    label: "Shows"
+    label_singular: "Show"
+    folder: "content/shows"
     create: true
     slug: "{{date}}"
     identifier_field: name
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Venue", name: "venue", widget: "string"}
-      - {label: "Address", name: "address", widget: "string"}
-      - label: "Date"
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        hint: Name of the show (ex. "Mattaus Gretzinger Quartet").
+      - label: "Venue"
+        name: "venue"
+        widget: "string"
+        hint: Name of the venue (ex. "the Rex"). An @ symbol is automatically inserted before the venue name.
+      - label: "Address"
+        name: "address"
+        widget: "string"
+        default: "123 Address, Toronto, ON"
+        hint: Address of the venue (ex. "942 College Street, Toronto, ON"). The city and province aren't displayed, but it's still important to enter it so that the Google maps link works!
+        pattern: ['.*,.*,.*', "Make sure you include the address, city, and province: There should be (at least) two commas"]
+      - label: "Show date"
         name: "date"
         widget: "datetime"
         date_format: "dddd MMMM D, YYYY"
         time_format: false
         format: YYYY-MM-DD
-      - label: "Start Time"
+      - label: "Show start time"
         name: "start"
         widget: "datetime"
         date_format: false
-        time_format: HH:mm
-        format: HH:mm
-      - label: "End Time"
+        time_format: h:mma
+        format: "h:mma"
+        default: "8:00pm"
+      - label: "Show end time"
         name: "end"
         widget: "datetime"
         date_format: false
-        time_format: HH:mm
-        format: HH:mm
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Image", name: "image", widget: "image"}
+        time_format: h:mma
+        format: "h:mma"
+        default: "10:00pm"
+      - label: "Description"
+        name: "description"
+        widget: "markdown"
+        buttons: []
+        editor_components: []
+        modes: [raw]
+        hint: You can add more context here, like who's playing or how much it costs to attend.
+      - label: "Thumbnail image"
+        name: "image"
+        widget: "image"

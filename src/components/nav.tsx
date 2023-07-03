@@ -17,7 +17,7 @@ export default function Nav() {
     return (
         <div className="absolute z-50 w-full flex justify-center gap-16 font-bold text-2xl underline mt-3">
             {navItems.map(item => (
-                <Link className={`${pathname === item.path ? "text-accentcol" : "text-textcol"}`} href={item.path}>{item.name}</Link>
+                <Link key={item.name} className={`${pathname === item.path ? "text-accentcol" : "text-textcol"}`} href={item.path}>{item.name}</Link>
             ))}
         </div>
     )

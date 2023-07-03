@@ -4,13 +4,14 @@ export type Blog = {
     slug: string
 }
 
-export type Gig = {
+export type Show = {
     title: string
     venue: string
     address: string
     date: Date
-    start: Date
-    end: Date
+    start: string
+    end: string
     description: string
     image: string
+    slug: string
 }
