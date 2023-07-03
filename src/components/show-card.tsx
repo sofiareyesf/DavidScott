@@ -23,12 +23,14 @@ export default function ShowCard({ show }: { show: Show }) {
             <div className="basis-[65%] h-full relative flex flex-col">
                 <div className="-mt-1 text-sm font-medium flex items-center gap-1">
                     <IoCalendarSharp />
-                    <p className=""> {show.date.toLocaleDateString("en-US", { weekday: 'long', month: 'long', day: 'numeric' })}: {show.start} - {show.end}</p>
+                    <p className=""> {show.date.toLocaleDateString("en-US", { weekday: 'long', month: 'long', day: 'numeric' })}, {show.start} - {show.end}</p>
                 </div>
                 <h2 className="text-4xl font-bold -mb-1 leading-7">{show.title}</h2>
                 <h3 className="text-4xl font-dancing text-accentcol">@ {show.venue}</h3>
-                <div className="flex-grow overflow-hidden">
-                    <p className="leading-5 font-light">{show.description}</p>
+                <div className="flex-grow overflow-hidden flex flex-col gap-2">
+                    {show.description.split("\n\n").map((paragraph, i) => {
+                        return <p key={i} className="leading-5 font-light whitespace-pre-wrap">{paragraph}</p>
+                    })}
                 </div>
                 <Link className="-mb-1 justify-self-end text-sm font-medium flex items-center gap-1 underline" href={`https://maps.google.com/?q=${show.address}`} target="_blank">
                     <FaMapMarkerAlt />
