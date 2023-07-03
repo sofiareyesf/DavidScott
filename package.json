@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
+    "export": "npm run build && next export",
     "lint": "next lint",
     "generate-admin-css": "npx tailwindcss build -i .next/static/css/app/(site)/layout.css -o public/admin/main.css"
   },
