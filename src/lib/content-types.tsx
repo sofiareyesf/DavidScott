@@ -13,5 +13,6 @@ export type Show = {
     end: string
     description: string
     image: string
+    imagePosition: "object-left-top" | "object-top" | "object-right-top" | "object-left" | "object-center" | "object-right" | "object-left-bottom" | "object-bottom" | "object-right-bottom"
     slug: string
 }

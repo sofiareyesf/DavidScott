@@ -24,10 +24,12 @@ collections:
   - name: "shows"
     label: "Shows"
     label_singular: "Show"
+    description: This is the description
     folder: "content/shows"
     create: true
-    slug: "{{date}}"
-    identifier_field: name
+    slug: "{{date}}-{{start}}"
+    identifier_field: date
+    summary: "{{date | date('MMMM D')}}: {{title}} @ {{venue}}"
     fields:
       - label: "Title"
         name: "title"
@@ -53,15 +55,15 @@ collections:
         name: "start"
         widget: "datetime"
         date_format: false
-        time_format: h:mma
-        format: "h:mma"
+        time_format: HH:mm
+        format: "HH:mm"
         default: "8:00pm"
       - label: "Show end time"
         name: "end"
         widget: "datetime"
         date_format: false
-        time_format: h:mma
-        format: "h:mma"
+        time_format: HH:mm
+        format: "HH:mm"
         default: "10:00pm"
       - label: "Description"
         name: "description"
@@ -73,3 +75,17 @@ collections:
       - label: "Thumbnail image"
         name: "image"
         widget: "image"
+      - label: "Image anchor"
+        name: image-position
+        widget: select
+        options:
+          - { label: "top left", value: "object-left-top" }
+          - { label: "top middle", value: "object-top" }
+          - { label: "top right", value: "object-right-top" }
+          - { label: "center left", value: "object-left" }
+          - { label: "center middle", value: "object-center" }
+          - { label: "center right", value: "object-right" }
+          - { label: "bottom left", value: "object-left-bottom" }
+          - { label: "bottom middle", value: "object-bottom" }
+          - { label: "bottom right", value: "object-right-bottom" }
+        default: "object-center"
