@@ -14,8 +14,6 @@ export default async function getContent(contentName: string) {
     return filesInFolder.map(filename => {
       const file = fs.readFileSync(`${contentFolder}/${contentName}/${filename}`, 'utf8');
       const matterData = matter(file);
-
-      console.log(file);
   
       return {
         slug: filename.slice(0, filename.indexOf('.')),

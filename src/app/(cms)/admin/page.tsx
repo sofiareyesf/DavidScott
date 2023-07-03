@@ -8,8 +8,8 @@ export default function Admin() {
         ; (async () => {
             const CMS = (await import('netlify-cms-app')).default;
             CMS.init();
-            CMS.registerPreviewStyle('/admin/main.css');
-            CMS.registerPreviewTemplate('gig', GigCardPreview);
+            // CMS.registerPreviewStyle('/admin/main.css');
+            // CMS.registerPreviewTemplate('gig', GigCardPreview);
         })()
     }, [])
 
