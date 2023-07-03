@@ -76,7 +76,7 @@ collections:
         name: "image"
         widget: "image"
       - label: "Image anchor"
-        name: image-position
+        name: imagePosition
         widget: select
         options:
           - { label: "top left", value: "object-left-top" }

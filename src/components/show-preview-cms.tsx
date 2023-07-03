@@ -31,6 +31,7 @@ export default function ShowCardPreview({ entry, getAsset }: any) {
         end: entry.getIn(['data', 'end']),
         description: entry.getIn(['data', 'description']),
         image: getAsset(entry.getIn(['data', 'image'])).url,
+        imagePosition: entry.getIn(['data', 'imagePosition']),
     } as Show;
 
     return (
