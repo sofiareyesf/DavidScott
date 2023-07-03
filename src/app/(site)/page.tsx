@@ -25,6 +25,8 @@ export default async function Home() {
       {gigs?.map(gig => (
         <GigCard key={gig.title} gig={gig} />
       ))}
+      <div className="h-10"></div>
+      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/wf1UQTX2iuc" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
     </main>
   )
 }
