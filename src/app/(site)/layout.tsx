@@ -1,7 +1,19 @@
+import Nav from '@/components/nav'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Changa, Dancing_Script } from 'next/font/google'
+import Link from 'next/link'
 
-const inter = Inter({ subsets: ['latin'] })
+const changa = Changa({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-changa',
+})
+
+const dancing = Dancing_Script({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-dancing',
+})
 
 export const metadata = {
     title: 'Create Next App',
@@ -10,8 +22,15 @@ export const metadata = {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <div className={`${inter.className} bg-bgcol text-textcol`}>
+        <main className={`${changa.variable} ${dancing.variable} font-changa bg-bgcol text-textcol relative`}>
+            <Nav />
             {children}
-        </div>
+            <div className="absolute bottom-2 w-full text-center">
+                <Link href="https://www.owengretzinger.com" target="_blank" className="text-textcol/30">
+                    Designed & Built by Owen Gretzinger
+                </Link>
+            </div>
+
+        </main>
     )
 }

@@ -9,8 +9,14 @@ module.exports = {
     extend: {
       colors: {
         'textcol': 'rgb(var(--color-text) / <alpha-value>)',
+        'texttint': 'rgb(var(--color-text-tint) / <alpha-value>)',
         'bgcol': 'rgb(var(--color-background) / <alpha-value>)',
+        'bglightcol': 'rgb(var(--color-background-light) / <alpha-value>)',
         'accentcol': 'rgb(var(--color-accent) / <alpha-value>)',
+      },
+      fontFamily: {
+        changa: ['var(--font-changa)'],
+        dancing: ['var(--font-dancing)'],
       },
     },
   },

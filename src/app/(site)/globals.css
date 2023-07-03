@@ -4,6 +4,8 @@
 
 :root {
   --color-text: 255 255 255; /* #ffffff */
+  --color-text-tint: 254 251 238; /* #fefbee */
   --color-background: 41 40 38; /* #292826 */
+  --color-background-light: 51 50 45; /* #33322d */
   --color-accent: 249 211 66; /* #f9d342 */
 }

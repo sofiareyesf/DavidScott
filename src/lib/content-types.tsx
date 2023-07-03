@@ -6,10 +6,11 @@ export type Blog = {
 
 export type Gig = {
     title: string
+    venue: string
+    address: string
     date: Date
     start: Date
     end: Date
-    image: string
     description: string
-    address: string
+    image: string
 }

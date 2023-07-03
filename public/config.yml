@@ -25,13 +25,14 @@ collections:
     label: "Gig"
     folder: "content/gigs"
     create: true
-    slug: "{{slug}}"
+    slug: "{{date.year}}-{{date.month}}-{{date.day}}-{{start.hour}}-{{start.minute}}"
     identifier_field: name
     fields:
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Venue", name: "venue", widget: "string"}
+      - {label: "Address", name: "address", widget: "string"}
       - {label: "Date", name: "date", widget: "datetime", time_format: false}
       - {label: "Start Time", name: "start", widget: "datetime", date_format: false}
       - {label: "End Time", name: "end", widget: "datetime", date_format: false}
-      - {label: "Image", name: "image", widget: "image"}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Address", name: "address", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
