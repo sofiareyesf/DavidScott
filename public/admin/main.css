@@ -977,21 +977,6 @@ video {
   object-fit: cover;
 }
 
-.object-top {
-  -o-object-position: top;
-  object-position: top;
-}
-
-.object-bottom {
-  -o-object-position: bottom;
-  object-position: bottom;
-}
-
-.object-left-bottom {
-  -o-object-position: left bottom;
-  object-position: left bottom;
-}
-
 .p-10 {
   padding: 2.5rem;
 }
