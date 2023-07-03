@@ -9,3 +9,8 @@
   --color-background-light: 51 50 45; /* #33322d */
   --color-accent: 249 211 66; /* #f9d342 */
 }
+
+html {
+  scrollbar-gutter: stable;
+  background-color: rgb(var(--color-background));
+}
