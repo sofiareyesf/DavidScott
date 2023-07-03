@@ -32,22 +32,22 @@ collections:
       - {label: "Venue", name: "venue", widget: "string"}
       - {label: "Address", name: "address", widget: "string"}
       - label: "Date"
-          name: "date"
-          widget: "datetime"
-          date_format: "dddd MMMM D, YYYY"
-          time_format: false
-          format: YYYY-MM-DD
+        name: "date"
+        widget: "datetime"
+        date_format: "dddd MMMM D, YYYY"
+        time_format: false
+        format: YYYY-MM-DD
       - label: "Start Time"
-          name: "start"
-          widget: "datetime"
-          date_format: false
-          time_format: HH:mm
-          format: HH:mm
+        name: "start"
+        widget: "datetime"
+        date_format: false
+        time_format: HH:mm
+        format: HH:mm
       - label: "End Time"
-          name: "end"
-          widget: "datetime"
-          date_format: false
-          time_format: HH:mm
-          format: HH:mm
+        name: "end"
+        widget: "datetime"
+        date_format: false
+        time_format: HH:mm
+        format: HH:mm
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Image", name: "image", widget: "image"}
