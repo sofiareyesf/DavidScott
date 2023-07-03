@@ -14,7 +14,7 @@ public_folder: "/uploads" # Where the media files can be accesed from the server
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
-    folder: "content/blogs" # The path to the folder where the documents are stored
+    folder: "../src/content/blogs" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
@@ -23,7 +23,7 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "gig"
     label: "Gig"
-    folder: "content/gigs"
+    folder: "../src/content/gigs"
     create: true
     slug: "{{slug}}"
     identifier_field: name
