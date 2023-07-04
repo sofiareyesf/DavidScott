@@ -5,7 +5,7 @@ import matter from 'gray-matter'
 
 const contentFolder = path.join(process.cwd(), 'content');
 
-export default async function getContent(contentName: string) {
+export default async function getCollectionContent(contentName: string) {
 
     let fullFilePath = path.resolve(contentFolder, contentName);
     let filesInFolder = fs.readdirSync(fullFilePath);

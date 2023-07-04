@@ -18,13 +18,20 @@ collections:
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: "HH:mm", format: "LLL"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          date_format: "DD.MM.YYYY",
+          time_format: "HH:mm",
+          format: "LLL",
+        }
+      - { label: "Body", name: "body", widget: "markdown" }
   - name: "shows"
     label: "Shows"
     label_singular: "Show"
-    description: This is the description
+    description: Add information about upcoming shows/gigs
     folder: "content/shows"
     create: true
     slug: "{{date}}-{{start}}"
@@ -42,9 +49,13 @@ collections:
       - label: "Address"
         name: "address"
         widget: "string"
-        default: "123 Address, Toronto, ON"
+        default: "123Address, Toronto, ON"
         hint: Address of the venue (ex. "942 College Street, Toronto, ON"). The city and province aren't displayed, but it's still important to enter it so that the Google maps link works!
-        pattern: ['.*,.*,.*', "Make sure you include the address, city, and province: There should be (at least) two commas"]
+        pattern:
+          [
+            ".*,.*,.*",
+            "Make sure you include the address, city, and province: There should be (at least) two commas",
+          ]
       - label: "Show date"
         name: "date"
         widget: "datetime"
@@ -55,16 +66,16 @@ collections:
         name: "start"
         widget: "datetime"
         date_format: false
-        time_format: HH:mm
-        format: "HH:mm"
-        default: "8:00pm"
+        time_format: "H:mma"
+        format: "HHmm"
+        default: 2000
       - label: "Show end time"
         name: "end"
         widget: "datetime"
         date_format: false
-        time_format: HH:mm
-        format: "HH:mm"
-        default: "10:00pm"
+        time_format: "H:mma"
+        format: "HHmm"
+        default: 2200
       - label: "Description"
         name: "description"
         widget: "markdown"
@@ -89,3 +100,63 @@ collections:
           - { label: "bottom middle", value: "object-bottom" }
           - { label: "bottom right", value: "object-right-bottom" }
         default: "object-center"
+  - label: "Website Text"
+    name: "pages"
+    files:
+      - label: "About Page"
+        name: "about"
+        file: "content/pages/about.yml"
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Subtitle, name: subtitle, widget: string }
+          - { label: Paragraph, name: paragraph, widget: markdown }
+          - { label: Card 1 Title, name: cardTitle1, widget: string }
+          - label: Card 1 Text
+            name: cardText1
+            widget: markdown
+            buttons: []
+            editor_components: []
+            modes: [raw]
+          - { label: Card 2 Title, name: cardTitle2, widget: string }
+          - label: Card 2 Text
+            name: cardText2
+            widget: markdown
+            buttons: []
+            editor_components: []
+            modes: [raw]
+          - { label: Card 3 Title, name: cardTitle3, widget: string }
+          - label: Card 3 Text
+            name: cardText3
+            widget: markdown
+            buttons: []
+            editor_components: []
+            modes: [raw]
+      - label: "Videos Page"
+        name: "videos"
+        file: "content/pages/videos.yml"
+        fields:
+          - { label: Title, name: title, widget: string }
+      - label: "Home Page"
+        name: "home"
+        file: "content/pages/home.yml"
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Subtitle, name: subtitle, widget: string }
+          - { label: Featured Video, name: featuredVideo, widget: string }
+      - label: "Shows Page"
+        name: "shows"
+        file: "content/pages/shows.yml"
+        fields:
+          - { label: Title, name: title, widget: string }
+      - label: "Contact Page"
+        name: "contact"
+        file: "content/pages/contact.yml"
+        fields:
+          - { label: Title, name: title, widget: string }
+          - label: Blurb
+            name: blurb
+            widget: markdown
+            buttons: []
+            editor_components: []
+            modes: [raw]
+

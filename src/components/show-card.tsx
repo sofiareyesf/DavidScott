@@ -43,7 +43,9 @@ export default function ShowCard({ show }: { show: Show }) {
 
 
 function formatTime(timeString : string) {
-    const [hourString, minute] = timeString.split(":");
+    timeString = timeString.toString();
+    const hourString = timeString.slice(0, 2);
+    const minute = timeString.slice(2, 4);
     const hour = +hourString % 24;
     return `${hour % 12 || 12}:${minute}${hour < 12 ? "am" : "pm"}`;
 }

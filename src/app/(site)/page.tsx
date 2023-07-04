@@ -3,8 +3,9 @@ import Link from 'next/link'
 import Button from '@/components/button'
 
 import { BsInstagram, BsYoutube, BsEnvelopeAt } from 'react-icons/bs';
-import Contact from '@/components/contact'
+import Contact from '@/sections/contact'
 import BackgroundImage from '@/components/bg-image'
+import Divider from '@/components/divider';
 
 export default async function Home() {
 
@@ -34,7 +35,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <span className="w-full h-[1px] bg-accentcol"></span>
+      <Divider />
 
       <div className="h-screen bg-bglightcol flex items-center px-6">
         <div className="basis-1/2 flex flex-col gap-8">
@@ -49,7 +50,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <span className="w-full h-[1px] bg-accentcol"></span>
+      <Divider />
 
       <Contact />
     </div>
