@@ -1,11 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/sections/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
+    screens: {
+      'sm': '400px',
+      'md': '630px',
+      'lg': '1024px',
+      'xl': '1300px',
+    },
     extend: {
       colors: {
         'textcol': 'rgb(var(--color-text) / <alpha-value>)',

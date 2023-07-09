@@ -7,8 +7,8 @@ backend:
 #display_url: https://mattausgretzinger.com
 display_url: https://magical-figolla-d19d49.netlify.app/
 
-media_folder: "public/uploads" # Where media files will be stored
-public_folder: "/uploads" # Where the media files can be accesed from the server
+media_folder: "public/images/uploads" # Where media files will be stored
+public_folder: "/images/uploads" # Where the media files can be accesed from the server
 # publish_mode: editorial_workflow # For Drafts
 
 collections:

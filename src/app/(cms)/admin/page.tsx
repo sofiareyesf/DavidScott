@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect } from 'react';
-import ShowCardPreview from '@/components/show-preview-cms';
+import ShowCardPreview from '@/previews/show-card';
+import AboutSectionPreview from '@/previews/about-section';
 
 export default function Admin() {
     useEffect(() => {
@@ -10,6 +11,7 @@ export default function Admin() {
             CMS.init();
             CMS.registerPreviewStyle('/admin/main.css');
             CMS.registerPreviewTemplate('shows', ShowCardPreview);
+            CMS.registerPreviewTemplate('about', AboutSectionPreview)
         })()
     }, [])
 
