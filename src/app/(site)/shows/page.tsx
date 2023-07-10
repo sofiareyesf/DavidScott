@@ -27,8 +27,8 @@ export default async function Shows() {
     return (
         <div className="flex flex-col relative">
             <div className="bg-bglightcol py-10 px-4">
-                <h1 className="text-7xl font-dancing text-accentcol text-center my-10">Upcoming Shows</h1>
-                <div className="w-full max-w-[500px] flex flex-col mx-auto items-center gap-10">
+                <h1 className="text-5xl md:text-7xl font-dancing text-accentcol text-center my-10">Upcoming Shows</h1>
+                <div className="w-full max-w-[600px] flex flex-col mx-auto items-center gap-10">
                     {upcomingShows ?
                         upcomingShows.map(show => (
                             <ShowCard key={show.slug} show={show} />
@@ -36,7 +36,7 @@ export default async function Shows() {
                         <p className="text-2xl font-light text-center leading-10">No upcoming shows.<br />Check again soon!</p>
                     }
                 </div>
-                <h1 className="text-7xl font-dancing text-accentcol text-center mt-20 mb-10">Past Shows</h1>
+                <h1 className="text-5xl md:text-7xl font-dancing text-accentcol text-center mt-20 mb-10">Past Shows</h1>
                 <div className="w-full max-w-[600px] flex flex-col-reverse mx-auto items-center gap-10">
                     {pastShows ? pastShows.map(show => (
                         <ShowCard key={show.slug} show={show} />

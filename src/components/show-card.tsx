@@ -13,7 +13,7 @@ export default function ShowCard({ show }: { show: Show }) {
   return (
     <div className="w-full md:aspect-[5/2.1] flex flex-col gap-3 relative z-20 border-l-2 border-accentcol pl-2 md:border-none md:pl-0">
       <div className="flex gap-3 w-full h-full">
-        <div className="basis-[35%] aspect-[1.75/2.1] h-full relative hidden md:block">
+        <div className="aspect-[1.75/2.1] h-full relative hidden md:block">
           <div className="w-full h-full absolute -top-2 -left-2 border border-accentcol"></div>
           <div className="w-full h-full absolute top-0">
             <Image src={show.image} fill className={`object-cover ${show.imagePosition} bg-accentcol`} alt="" />
@@ -21,8 +21,8 @@ export default function ShowCard({ show }: { show: Show }) {
             <div className="absolute w-full h-full bg-bgcol/20"></div>
           </div>
         </div>
-        <div className="w-full md:basis-[65%] md:h-full md:max-h-full relative z-20 flex flex-col gap-2 justify-between">
-          <div className="">
+        <div className="w-full md:h-full md:max-h-full relative z-20 flex flex-col justify-between">
+          <div className="h-fit">
             <div className="w-[calc(100%_-_58px)] md:w-full">
               <div className="-mt-1 text-sm leading-4 font-medium flex gap-1 items-start">
                 <div className="pt-[1px]"><IoCalendarSharp /></div>
@@ -33,12 +33,12 @@ export default function ShowCard({ show }: { show: Show }) {
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold leading-7 sm:leading-7">{show.title}</h2>
             </div>
-            <div className="text-3xl sm:text-4xl font-dancing text-accentcol flex leading-8 sm:leading-8 pb-1">
+            <div className="text-3xl sm:text-4xl font-dancing text-accentcol flex leading-8 sm:leading-8 py-1">
               <div>@&nbsp;</div>
               <h3>{show.venue}</h3>
             </div>
           </div>
-          <div className="flex-grow overflow-hidden">
+          <div className="flex-grow overflow-hidden py-2 md:py-1">
             <div className={`flex flex-col gap-[6px] my-auto`}>
               {show.description?.split("\n\n").map((paragraph, i) => {
                 return <p key={i} className="leading-[18px] font-light whitespace-pre-wrap">{paragraph}</p>

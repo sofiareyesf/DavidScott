@@ -8,7 +8,7 @@ export default function Contact() {
 
 
     return (
-        <div className="lg:h-screen p-2 sm:p-10 pt-20 lg:p-20 flex flex-col lg:flex-row">
+        <div className="lg:h-screen p-2 sm:p-10 lg:p-20 pt-20 sm:pt-20 flex flex-col lg:flex-row">
             <div className="basis-1/2 flex flex-col gap-8">
                 <h1 className="text-7xl font-dancing text-accentcol">Contact & Socials</h1>
                 <p className="text-xl">
