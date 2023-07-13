@@ -1,4 +1,5 @@
 import { Button } from "@/components/button";
+import FormSuccess from "@/components/form-success";
 import Link from "next/link";
 import { BsEnvelopeAt, BsInstagram, BsYoutube } from "react-icons/bs";
 
@@ -34,9 +35,9 @@ export default function Contact() {
             <div className="lg:basis-1/2">
                 <div className="max-w-[450px] h-fit mb-10 lg:my-0 mx-auto relative">
                     <div className="w-full h-full absolute -top-2 -left-2 border border-accentcol pointer-events-none"></div>
-                    <form name="contact" method="POST" data-netlify="true" className="h-full flex flex-col gap-8 bg-bglightcol p-8 relative z-10">
+                    <form name="contact" method="POST" data-netlify="true" action="/contact?formsubmit=true" className="h-full flex flex-col gap-8 bg-bglightcol p-8 relative z-10">
                         <input type="hidden" name="subject"
-                            value="Sales inquiry from mysitename.netlify.app" />
+                            value="mattausgretzinger.com form submission" />
 
                         <label>
                             <p className="after:content-['*'] after:ml-0.5 after:text-red-400">Name</p>
@@ -58,8 +59,9 @@ export default function Contact() {
                             <label>Message: <textarea name="message"></textarea></label>
                         </p> */}
 
-                        <div className="justify-self-end">
+                        <div className="flex gap-5 items-center">
                             <Button type="submit" styleType="Primary" text="Send" widthClass="w-36" />
+                            <FormSuccess />
                         </div>
                     </form>
 
