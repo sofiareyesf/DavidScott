@@ -16,7 +16,7 @@ export default function FormSuccess() {
   useEffect(() => {
     if (searchParams.get('formsubmit')) {
       setFormSubmit(true);
-      router.push("/contact");
+      router.replace("/contact", {shallow: true});
     }
   }, []);
 
