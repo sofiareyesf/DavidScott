@@ -1,12 +1,7 @@
 'use client';
-
 import { Button } from "@/components/button";
-import FormSuccess from "./form-success";
 import { useState } from "react";
 import { BsCheck } from "react-icons/bs";
-
-
-
 
 export default function Form() {
   const encode = (data: any) => {
@@ -24,9 +19,7 @@ export default function Form() {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...state })
-    })
-      .then(() => console.log("Success!"))
-      .catch(error => console.log(error));
+    }).catch(error => console.log(error));
 
     event.preventDefault();
     setSubmitted(true);
@@ -50,17 +43,17 @@ export default function Form() {
 
       <label>
         <p className="after:content-['*'] after:ml-0.5 after:text-red-400">Name</p>
-        <input type="text" name="name" className="w-full bg-transparent border-b border-accentcol px-3 py-2 placeholder-textcol/50 focus:border-transparent focus:outline-none focus:ring-1 ring-accentcol block" placeholder="First Last" required onChange={handleChange} />
+        <input type="text" id="name" name="name" className="w-full bg-transparent border-b border-accentcol px-3 py-2 placeholder-textcol/50 focus:border-transparent focus:outline-none focus:ring-1 ring-accentcol block" placeholder="First Last" required onChange={handleChange} />
       </label>
 
       <label>
         <p className="after:content-['*'] after:ml-0.5 after:text-red-400">Email</p>
-        <input type="email" name="email" className="w-full bg-transparent border-b border-accentcol px-3 py-2 placeholder-textcol/50 focus:border-transparent focus:outline-none focus:ring-1 ring-accentcol block" placeholder="example@gmail.com" required onChange={handleChange} />
+        <input type="email" id="email" name="email" className="w-full bg-transparent border-b border-accentcol px-3 py-2 placeholder-textcol/50 focus:border-transparent focus:outline-none focus:ring-1 ring-accentcol block" placeholder="example@gmail.com" required onChange={handleChange} />
       </label>
 
       <label>
         <p className="after:content-['*'] after:ml-0.5 after:text-red-400">Message</p>
-        <textarea name="message" rows={8} className="w-full bg-transparent border-b border-accentcol px-3 py-3 placeholder-textcol/50 focus:border-transparent focus:outline-none focus:ring-1 ring-accentcol block resize-none" placeholder="Write a message..." required onChange={handleChange} />
+        <textarea id="message" name="message" rows={8} className="w-full bg-transparent border-b border-accentcol px-3 py-3 placeholder-textcol/50 focus:border-transparent focus:outline-none focus:ring-1 ring-accentcol block resize-none" placeholder="Write a message..." required onChange={handleChange} />
       </label>
 
       <div className="flex gap-5 items-center">
