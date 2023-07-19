@@ -36,8 +36,8 @@ export default function Contact() {
                 <div className="max-w-[450px] h-fit mb-10 lg:my-0 mx-auto relative">
                     <div className="w-full h-full absolute -top-2 -left-2 border border-accentcol pointer-events-none"></div>
                     <form name="contact" method="POST" data-netlify="true" action="/contact?formsubmit=true" data-netlify-honeypot="bot-field" className="h-full flex flex-col gap-8 bg-bglightcol p-8 relative z-10">
-                        <input type="hidden" name="subject"
-                            value="mattausgretzinger.com form submission" />
+                        {/* <input type="hidden" name="subject" value="mattausgretzinger.com form submission" /> */}
+                        <input type="hidden" name="form-name" value="contact" />
 
                         <label hidden>
                             Bot field, don’t fill this out: <input name="bot-field" />
