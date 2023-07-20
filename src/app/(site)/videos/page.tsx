@@ -1,14 +1,9 @@
+import Videos from "@/sections/videos";
 
-
-
-
-
-export default function Videos() {
+export default function VideosPage() {
 
 
     return (
-        <div className="">
-            
-        </div>
+        <Videos />
     )
 }
