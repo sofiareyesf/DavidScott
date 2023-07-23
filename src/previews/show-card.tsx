@@ -20,12 +20,6 @@ export default function ShowCardPreview({ entry, getAsset }: any) {
         imagePosition: entry.getIn(['data', 'imagePosition']),
     } as Show;
 
-    // var cssLink = document.createElement("link");
-    // cssLink.href = "style.css";
-    // cssLink.rel = "stylesheet";
-    // cssLink.type = "text/css";
-    // frames['mobile'].document.head.appendChild(cssLink);
-
     return (
         <PreviewWrapper>
             <div className="w-full h-full flex flex-col p-20">

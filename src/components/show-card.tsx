@@ -10,6 +10,14 @@ import Link from 'next/link'
 export default function ShowCard({ show }: { show: Show }) {
   const addressString = show.address.split(",")[0];
 
+  let showStartDateTime = new Date(show.date);
+  showStartDateTime.setHours(parseInt(show.start.slice(1, 3)) + 24, parseInt(show.start.slice(3, 5)));
+  let showEndDateTime = new Date(show.date);
+  showEndDateTime.setHours(parseInt(show.end.slice(1, 3)) + 24, parseInt(show.end.slice(3, 5)));
+
+  const now = new Date();
+  const happeningCurrently = showStartDateTime <= now && showEndDateTime >= now;
+
   return (
     <div className="w-full md:aspect-[5/2.1] flex flex-col gap-3 relative z-20 border-l-2 border-accentcol pl-2 md:border-none md:pl-0">
       <div className="flex gap-3 w-full h-full">
@@ -26,10 +34,22 @@ export default function ShowCard({ show }: { show: Show }) {
             <div className="w-[calc(100%_-_58px)] md:w-full">
               <div className="-mt-1 text-sm leading-4 font-medium flex gap-1 items-start">
                 <div className="pt-[1px]"><IoCalendarSharp /></div>
-                <div className="flex flex-col sm:flex-row">
-                  <p className="">{show.date.toLocaleDateString("en-US", { weekday: 'long', month: 'long', day: 'numeric' })},&nbsp;</p>
-                  <p className="">{formatTime(show.start)} - {formatTime(show.end)}</p>
-                </div>
+                {happeningCurrently ?
+                  <>
+                    <p className="mr-1">LIVE UNTIL {formatTime(show.end)}</p>
+                    <span className="relative flex h-3 w-3">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                    </span>
+                  </>
+                  :
+                  <>
+                    <div className="flex flex-col sm:flex-row">
+                      <p className="">{show.date.toLocaleDateString("en-US", { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' })},&nbsp;</p>
+                      <p className="">{formatTime(show.start)} - {formatTime(show.end)}</p>
+                    </div>
+                  </>
+                }
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold leading-7 sm:leading-7">{show.title}</h2>
             </div>
@@ -66,9 +86,8 @@ export default function ShowCard({ show }: { show: Show }) {
 
 
 function formatTime(timeString: string) {
-  timeString = timeString.toString();
-  const hourString = timeString.slice(0, 2);
-  const minute = timeString.slice(2, 4);
+  const hourString = timeString.slice(1, 3);
+  const minute = timeString.slice(3, 5);
   const hour = +hourString % 24;
   return `${hour % 12 || 12}:${minute}${hour < 12 ? "am" : "pm"}`;
 }

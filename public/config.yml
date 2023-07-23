@@ -67,14 +67,14 @@ collections:
         widget: "datetime"
         date_format: false
         time_format: "H:mma"
-        format: "HHmm"
+        format: "[\"]HHmm[\"]"
         default: 2000
       - label: "Show end time"
         name: "end"
         widget: "datetime"
         date_format: false
         time_format: "H:mma"
-        format: "HHmm"
+        format: "[\"]HHmm[\"]"
         default: 2200
       - label: "Description"
         name: "description"
