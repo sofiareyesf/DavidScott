@@ -8,7 +8,7 @@ export default function About({ pageText }: { pageText: AboutPageContent }) {
     <>
       <div className="relative">
         <div className="w-full h-full absolute top-0">
-          <BackgroundImage src="/images/uploads/bass-myw.jpeg" gradientDirClass='bg-gradient-to-r' middleColourPercentClass="via-35%" objectPositionClass="object-[70%_0%] md:object-center" />
+          <BackgroundImage src="/images/uploads/bass-myw.jpeg" gradientDirClass='bg-gradient-to-r' middleColourPercentClass="via-35%" objectPositionClass="object-[70%_0%] md:object-center" priority={true} sizes="100vw" />
         </div>
         <div className="p-4 pt-20 md:p-10 md:pt-20 lg:p-20 relative z-10">
           <h1 className="text-5xl sm:text-7xl font-bold">{pageText.title}</h1>
@@ -23,13 +23,13 @@ export default function About({ pageText }: { pageText: AboutPageContent }) {
           <div id="about-cards" className="w-full h-full relative overflow-x-scroll md:overflow-x-auto">
             <div className="w-fit md:w-full h-full flex gap-4 lg:gap-10 absolute bottom-0 px-4 lg:px-10">
               <div className="basis-1/3 relative min-w-[280px] md:min-w-0">
-                <BackgroundImage src={pageText.cardImage1} gradientDirClass='bg-gradient-to-t' middleColourPercentClass="via-35%" toClass="to-bgcol/20" />
+                <BackgroundImage src={pageText.cardImage1} gradientDirClass='bg-gradient-to-t' middleColourPercentClass="via-35%" toClass="to-bgcol/20" sizes="(max-width: 630px) 100vw, 33vw" />
               </div>
               <div className="basis-1/3 relative min-w-[280px] md:min-w-0">
-                <BackgroundImage src={pageText.cardImage2} gradientDirClass='bg-gradient-to-t' middleColourPercentClass="via-35%" toClass="to-bgcol/20" />
+                <BackgroundImage src={pageText.cardImage2} gradientDirClass='bg-gradient-to-t' middleColourPercentClass="via-35%" toClass="to-bgcol/20" sizes="(max-width: 630px) 100vw, 33vw" />
               </div>
               <div className="basis-1/3 relative min-w-[280px] md:min-w-0">
-                <BackgroundImage src={pageText.cardImage3} gradientDirClass='bg-gradient-to-t' middleColourPercentClass="via-35%" toClass="to-bgcol/20" />
+                <BackgroundImage src={pageText.cardImage3} gradientDirClass='bg-gradient-to-t' middleColourPercentClass="via-35%" toClass="to-bgcol/20" sizes="(max-width: 630px) 100vw, 33vw" />
               </div>
             </div>
             <div className="w-fit md:w-full h-fit flex gap-4 lg:gap-10 absolute bottom-0 px-4 lg:px-10">

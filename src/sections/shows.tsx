@@ -4,9 +4,7 @@ import ShowCard from '@/components/show-card'
 import Divider from '@/components/divider';
 import renderParagraph from '@/lib/render-paragraph';
 
-export default async function Shows({ pageText }: { pageText: ShowsPageContent }) {
-  const allShows: Show[] = await getCollectionContent("shows") as Show[];
-
+export default function Shows({ pageText, allShows }: { pageText: ShowsPageContent, allShows: Show[] }) {
   allShows.sort((a, b) => a.slug > b.slug ? 1 : -1);
 
   const upcomingShows: Show[] = [];

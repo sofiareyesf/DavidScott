@@ -24,7 +24,7 @@ export default function ShowCard({ show }: { show: Show }) {
         <div className="aspect-[1.75/2.1] h-full relative hidden md:block">
           <div className="w-full h-full absolute -top-2 -left-2 border border-accentcol"></div>
           <div className="w-full h-full absolute top-0 grain-img">
-            <Image src={show.image} fill className={`object-cover ${show.imagePosition} saturate-150 contrast-125 brightness-110`} alt="" />
+            <Image src={show.image} fill className={`object-cover ${show.imagePosition} saturate-150 contrast-125 brightness-110`} alt="" sizes="210px" />
             <div className="absolute w-full h-full bg-accentcol/20"></div>
             <div className="absolute w-full h-full bg-bgcol/20"></div>
           </div>
@@ -74,7 +74,7 @@ export default function ShowCard({ show }: { show: Show }) {
         </div>
       </div>
       <div className="absolute top-0 right-0 w-[50px] aspect-[1.75/2.1] z-10 md:hidden">
-        <Image src={show.image} fill className={`object-cover ${show.imagePosition} bg-accentcol`} alt="" />
+        <Image src={show.image} fill className={`object-cover ${show.imagePosition} bg-accentcol`} alt="" sizes="50px" />
         <div className="absolute w-full h-full bg-accentcol/20"></div>
         <div className="absolute w-full h-full bg-bgcol/40"></div>
         <div className="w-full h-full absolute border border-accentcol"></div>

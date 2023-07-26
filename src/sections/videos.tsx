@@ -8,13 +8,13 @@ export default function Videos({ pageText }: { pageText: VideosPageContent }) {
 
   return (
     <>
-      <div className="bg-bglightcol py-10 px-4">
+      <div className="bg-bglightcol pt-10 pb-20 px-4">
         <h1 className="text-5xl md:text-7xl font-dancing text-accentcol text-center mt-10">{pageText.title}</h1>
         <Link href="https://www.youtube.com/@mattgretz" target="_blank" className="flex items-center gap-3 text-accentcol hover:text-accentcol/80 w-min mx-auto text-2xl font-medium whitespace-nowrap mb-10 hover:underline">
           {pageText.subtitle}
           <BsYoutube className="" />
         </Link>
-        <div className="grid grid-cols-1 md:grid-cols-2 mx-auto place-content-center gap-10 md:max-w-[1260px]">
+        <div className="grid grid-cols-1 min-[800px]:grid-cols-2 mx-auto place-content-center gap-20 min-[800px]:max-w-[1260px]">
           {
             videos.map(videoLink => (
               <div key={videoLink} className="w-full aspect-[5.6/3.15] relative">
