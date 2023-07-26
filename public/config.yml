@@ -111,6 +111,7 @@ collections:
           - { label: Subtitle, name: subtitle, widget: string }
           - { label: Paragraph, name: paragraph, widget: markdown }
           - { label: Card 1 Title, name: cardTitle1, widget: string }
+          - { label: Card 1 Image, name: cardImage1, widget: image }
           - label: Card 1 Text
             name: cardText1
             widget: markdown
@@ -118,6 +119,7 @@ collections:
             editor_components: []
             modes: [raw]
           - { label: Card 2 Title, name: cardTitle2, widget: string }
+          - { label: Card 2 Image, name: cardImage2, widget: image }
           - label: Card 2 Text
             name: cardText2
             widget: markdown
@@ -125,6 +127,7 @@ collections:
             editor_components: []
             modes: [raw]
           - { label: Card 3 Title, name: cardTitle3, widget: string }
+          - { label: Card 3 Image, name: cardImage3, widget: image }
           - label: Card 3 Text
             name: cardText3
             widget: markdown
@@ -136,18 +139,31 @@ collections:
         file: "content/pages/videos.yml"
         fields:
           - { label: Title, name: title, widget: string }
+          - { label: Subtitle, name: subtitle, widget: string }
+          - label: "Video Links"
+            name: "videos"
+            widget: "list"
+            summary: '{{fields.video}}'
+            field: {label: Video Link, name: video, widget: string}
       - label: "Home Page"
         name: "home"
         file: "content/pages/home.yml"
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Subtitle, name: subtitle, widget: string }
-          - { label: Featured Video, name: featuredVideo, widget: string }
+          - { label: Featured Video Link, name: featuredVideo, widget: string }
       - label: "Shows Page"
         name: "shows"
         file: "content/pages/shows.yml"
         fields:
-          - { label: Title, name: title, widget: string }
+          - { label: Upcoming Shows Text, name: title1, widget: string }
+          - label: No Upcoming Shows Text
+            name: noUpcoming
+            widget: markdown
+            buttons: []
+            editor_components: []
+            modes: [raw]
+          - { label: Past Shows Text, name: title2, widget: string }
       - label: "Contact Page"
         name: "contact"
         file: "content/pages/contact.yml"
@@ -159,4 +175,7 @@ collections:
             buttons: []
             editor_components: []
             modes: [raw]
+          - { label: Instagram Link, name: instagram, widget: string, description: Also used for the contact page }
+          - { label: Youtube Link, name: youtube, widget: string, description: Also used for the contact page }
+          - { label: Email Link, name: email, widget: string, description: Also used for the contact page }
 

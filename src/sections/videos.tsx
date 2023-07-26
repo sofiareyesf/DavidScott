@@ -1,35 +1,17 @@
 import Divider from "@/components/divider";
-import Contact from "./contact";
 import { BsYoutube } from "react-icons/bs";
 import Link from "next/link";
+import { VideosPageContent } from "@/lib/content-types";
 
-
-
-
-
-
-export default function Videos() {
-
-  const videos: string[] = [
-    "https://youtu.be/V85KsPcJdDM",
-    "https://youtu.be/wf1UQTX2iuc",
-    "https://youtu.be/LpZ3-I2NPos",
-    "https://youtu.be/-4Zp1PZbdiA",
-    "https://youtu.be/AhYqlJukT4I",
-  ]
-    .map(link => link.replace("watch?v=", "embed/"))
-    .map(link => link.replace("youtu.be/", "youtube.com/embed/"))
-    .map(link => link.replace("youtube.com/", "youtube-nocookie.com/"))
-    .map(link => link.replace("https://y", "https://www.y"));
-
-
+export default function Videos({ pageText }: { pageText: VideosPageContent }) {
+  const videos: string[] = pageText.videos.map(convertToEmbedLink);
 
   return (
-    <div className="flex flex-col relative">
+    <>
       <div className="bg-bglightcol py-10 px-4">
-        <h1 className="text-5xl md:text-7xl font-dancing text-accentcol text-center mt-10">Videos</h1>
-        <Link href="https://www.youtube.com/@mattgretz" target="_blank" className="flex items-center gap-3 text-accentcol hover:text-accentcol/80 w-min mx-auto text-2xl font-medium whitespace-nowrap mb-10">
-          More on Youtube
+        <h1 className="text-5xl md:text-7xl font-dancing text-accentcol text-center mt-10">{pageText.title}</h1>
+        <Link href="https://www.youtube.com/@mattgretz" target="_blank" className="flex items-center gap-3 text-accentcol hover:text-accentcol/80 w-min mx-auto text-2xl font-medium whitespace-nowrap mb-10 hover:underline">
+          {pageText.subtitle}
           <BsYoutube className="" />
         </Link>
         <div className="grid grid-cols-1 md:grid-cols-2 mx-auto place-content-center gap-10 md:max-w-[1260px]">
@@ -48,8 +30,10 @@ export default function Videos() {
       </div>
 
       <Divider />
-
-      <Contact />
-    </div>
+    </>
   )
+}
+
+export function convertToEmbedLink(link: string) {
+  return link.replace("watch?v=", "embed/").replace("youtu.be/", "youtube.com/embed/").replace("youtube.com/", "youtube-nocookie.com/").replace("https://y", "https://www.y");
 }

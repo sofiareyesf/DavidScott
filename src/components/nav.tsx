@@ -32,7 +32,7 @@ export default function Nav() {
       <div className={`fixed z-50 w-screen ${scrollY > 50 ? "bg-bgcol/70" : ""} transition-colors duration-300`}>
         <div className={`hidden md:flex justify-center gap-16 font-bold text-2xl underline py-3`}>
           {navItems.map(item => (
-            <Link key={item.name} className={`${pathname === item.path ? "text-accentcol" : "text-textcol"}`} href={item.path}>
+            <Link key={item.name} className={`${pathname === item.path ? "text-accentcol" : "text-textcol hover:text-[rgb(254,246,216)]"}`} href={item.path}>
               {item.name}
             </Link>
           ))}

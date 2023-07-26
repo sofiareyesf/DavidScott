@@ -1,16 +1,13 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import ButtonLink from '@/components/button'
-
 import { BsInstagram, BsYoutube, BsEnvelopeAt } from 'react-icons/bs';
-import Contact from '@/sections/contact'
 import BackgroundImage from '@/components/bg-image'
 import Divider from '@/components/divider';
 import getCollectionContent from '@/lib/get-collection-content';
-import { Show } from '@/lib/content-types';
+import { ContactPageContent, HomePageContent, Show } from '@/lib/content-types';
 import ShowCard from '@/components/show-card';
 
-export default async function Home() {
+export default async function Home({ pageText, contactPageText }: { pageText: HomePageContent, contactPageText: ContactPageContent }) {
   const allShows: Show[] = await getCollectionContent("shows") as Show[];
   allShows.sort();
   const now = new Date();
@@ -30,30 +27,30 @@ export default async function Home() {
 
 
   return (
-    <div className="flex flex-col">
+    <>
       <div className="h-screen relative">
         <BackgroundImage src="/images/uploads/emmet-ray-2.jpeg" gradientDirClass='bg-gradient-to-t' middleColourPercentClass='via-25%' />
 
         <div className="absolute bottom-0 w-full flex flex-col items-center text-center">
           <div className="flex gap-20 md:gap-28 pb-2 z-10 text-3xl md:text-4xl">
-            <Link href="https://www.instagram.com/mattgretz/" target="_blank">
+            <Link href={contactPageText.instagram} target="_blank">
               <BsInstagram className="text-accentcol hover:text-accentcol/80" />
             </Link>
-            <Link href="https://www.youtube.com/@mattgretz" target="_blank">
+            <Link href={contactPageText.youtube} target="_blank">
               <BsYoutube className="text-accentcol hover:text-accentcol/80" />
             </Link>
-            <Link href="mailto:mdgretz@gmail.com" target="_blank">
+            <Link href={contactPageText.email} target="_blank">
               <BsEnvelopeAt className="text-accentcol hover:text-accentcol/80" />
             </Link>
           </div>
           <svg viewBox="0 -12 140 15" width="97%" height="100%" className="block md:hidden">
-            <text className="fill-textcol font-bold">Mattaus Gretzinger</text>
+            <text className="fill-textcol font-bold">{pageText.title}</text>
           </svg>
-          <h1 className="text-5xl md:text-7xl font-bold hidden md:block">Mattaus Gretzinger</h1>
+          <h1 className="text-5xl md:text-7xl font-bold hidden md:block">{pageText.title}</h1>
           <svg viewBox="0 -12 260 15" width="90%" height="100%" className="block md:hidden">
-            <text className="fill-accentcol font-dancing font-bold">Toronto based Alto Saxophonist & Composer</text>
+            <text className="fill-accentcol font-dancing font-bold">{pageText.subtitle}</text>
           </svg>
-          <h2 className="text-2xl md:text-4xl font-dancing text-accentcol hidden md:block">Toronto based Alto Saxophonist & Composer</h2>
+          <h2 className="text-2xl md:text-4xl font-dancing text-accentcol hidden md:block">{pageText.subtitle}</h2>
           <div className="flex gap-3 md:gap-6 pb-12 pt-6 md:pt-12">
             <ButtonLink type="Secondary" text="Shows" link="/shows" widthClass="w-36 md:w-48" smallOnMobile={true} />
             <ButtonLink type="Primary" text="Book" link="/contact" widthClass="w-36 md:w-48" smallOnMobile={true} />
@@ -88,7 +85,7 @@ export default async function Home() {
               <div className="w-full aspect-[5.6/3.15] relative">
                 <div className="w-full h-full absolute -top-2 -left-2 border border-accentcol pointer-events-none"></div>
                 <div className="absolute bg-texttint pointer-events-none"></div>
-                <iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/wf1UQTX2iuc" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="absolute" />
+                <iframe width="100%" height="100%" src={pageText.featuredVideo} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="absolute" />
                 <div className="absolute w-full h-full bg-accentcol/20 pointer-events-none"></div>
                 <div className="absolute w-full h-full bg-bgcol/20 pointer-events-none"></div>
               </div>
@@ -99,9 +96,7 @@ export default async function Home() {
       </div>
 
       <Divider />
-
-      <Contact />
-    </div>
+    </>
   )
 }
 
