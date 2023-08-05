@@ -91,6 +91,7 @@ collections:
         name: "about-section"
         file: "content/pages/about.yml"
         fields:
+          - { label: Background Image, name: backgroundImage, widget: image }
           - { label: Title, name: title, widget: string }
           - { label: Subtitle, name: subtitle, widget: string }
           - { label: Paragraph, name: paragraph, widget: markdown }
@@ -133,6 +134,7 @@ collections:
         name: "home-section"
         file: "content/pages/home.yml"
         fields:
+          - { label: Background Image, name: backgroundImage, widget: image }
           - { label: Title, name: title, widget: string }
           - { label: Subtitle, name: subtitle, widget: string }
           - { label: Featured Video Link, name: featuredVideo, widget: string }

@@ -4,7 +4,7 @@ import AboutCardsButton from "@/components/about-cards-buttons";
 import renderParagraph from "@/lib/render-paragraph";
 import Image from 'next/image';
 
-export default function About({ pageText, bgImgPlaceholder }: { pageText: AboutPageContent, bgImgPlaceholder: string }) {
+export default function About({ pageText, bgImgPlaceholder }: { pageText: AboutPageContent, bgImgPlaceholder?: string }) {
   return (
     <>
       <div className="relative">
