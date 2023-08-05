@@ -1,4 +1,3 @@
-import getCollectionContent from '@/lib/get-collection-content'
 import { Show, ShowsPageContent } from '@/lib/content-types'
 import ShowCard from '@/components/show-card'
 import Divider from '@/components/divider';

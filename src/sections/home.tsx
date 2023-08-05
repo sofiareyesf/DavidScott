@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import ButtonLink from '@/components/button'
 import { BsInstagram, BsYoutube, BsEnvelopeAt } from 'react-icons/bs';
-import BackgroundImage from '@/components/bg-image'
+import BackgroundImage, { BackgroundImage2 } from '@/components/bg-image'
 import Divider from '@/components/divider';
 import { ContactPageContent, HomePageContent, Show } from '@/lib/content-types';
 import ShowCard from '@/components/show-card';
+import Image from 'next/image'
 
-export default function Home({ pageText, contactPageText, allShows }: { pageText: HomePageContent, contactPageText: ContactPageContent, allShows: Show[] }) {
+export default function Home({ pageText, contactPageText, allShows, bgImgPlaceholder }: { pageText: HomePageContent, contactPageText: ContactPageContent, allShows: Show[], bgImgPlaceholder: string }) {
   allShows.sort();
   const now = new Date();
   let showToDisplay = { showInfo: allShows[allShows.length - 1], pastShow: true };
@@ -23,11 +24,10 @@ export default function Home({ pageText, contactPageText, allShows }: { pageText
   }
 
 
-
   return (
     <>
       <div className="h-screen relative">
-        <BackgroundImage src="/images/uploads/emmet-ray-2.jpeg" gradientDirClass='bg-gradient-to-t' middleColourPercentClass='via-25%' priority={true} sizes="100vw" />
+        <BackgroundImage src="/images/uploads/emmet-ray-2.jpeg" gradientDirClass='bg-gradient-to-t' middleColourPercentClass='via-25%' priority={true} sizes="100vw" blurDataURL={bgImgPlaceholder} />
 
         <div className="absolute bottom-0 w-full flex flex-col items-center text-center">
           <div className="flex gap-20 md:gap-28 pb-2 z-10 text-3xl md:text-4xl">

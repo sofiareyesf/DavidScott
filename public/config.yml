@@ -12,7 +12,7 @@ public_folder: "/images/uploads" # Where the media files can be accesed from the
 # publish_mode: editorial_workflow # For Drafts
 
 collections:
-  - name: "shows"
+  - name: "show-cards"
     label: "Shows"
     label_singular: "Show"
     description: Add information about upcoming shows/gigs
@@ -88,7 +88,7 @@ collections:
     name: "pages"
     files:
       - label: "About Page"
-        name: "about"
+        name: "about-section"
         file: "content/pages/about.yml"
         fields:
           - { label: Title, name: title, widget: string }
@@ -119,7 +119,7 @@ collections:
             editor_components: []
             modes: [raw]
       - label: "Videos Page"
-        name: "videos"
+        name: "videos-section"
         file: "content/pages/videos.yml"
         fields:
           - { label: Title, name: title, widget: string }
@@ -130,14 +130,14 @@ collections:
             summary: '{{fields.video}}'
             field: {label: Video Link, name: video, widget: string}
       - label: "Home Page"
-        name: "home"
+        name: "home-section"
         file: "content/pages/home.yml"
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Subtitle, name: subtitle, widget: string }
           - { label: Featured Video Link, name: featuredVideo, widget: string }
       - label: "Shows Page"
-        name: "shows"
+        name: "shows-section"
         file: "content/pages/shows.yml"
         fields:
           - { label: Upcoming Shows Text, name: title1, widget: string }
@@ -149,7 +149,7 @@ collections:
             modes: [raw]
           - { label: Past Shows Text, name: title2, widget: string }
       - label: "Contact Page"
-        name: "contact"
+        name: "contact-section"
         file: "content/pages/contact.yml"
         fields:
           - { label: Title, name: title, widget: string }

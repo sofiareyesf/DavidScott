@@ -14,12 +14,12 @@ export default function Admin() {
             const CMS = (await import('netlify-cms-app')).default;
             CMS.init();
             CMS.registerPreviewStyle('/admin/main.css');
-            CMS.registerPreviewTemplate('shows', ShowCardPreview);
-            CMS.registerPreviewTemplate('home', HomeSectionPreview);
-            CMS.registerPreviewTemplate('about', AboutSectionPreview);
-            CMS.registerPreviewTemplate('videos', VideosSectionPreview);
-            CMS.registerPreviewTemplate('shows', ShowsSectionPreview);
-            CMS.registerPreviewTemplate('contact', ContactSectionPreview);
+            CMS.registerPreviewTemplate('show-cards', ShowCardPreview);
+            CMS.registerPreviewTemplate('home-section', HomeSectionPreview);
+            CMS.registerPreviewTemplate('about-section', AboutSectionPreview);
+            CMS.registerPreviewTemplate('videos-section', VideosSectionPreview);
+            CMS.registerPreviewTemplate('shows-section', ShowsSectionPreview);
+            CMS.registerPreviewTemplate('contact-section', ContactSectionPreview);
         })()
     }, [])
 

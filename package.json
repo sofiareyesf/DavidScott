@@ -10,6 +10,7 @@
     "generate-admin-css": "npx tailwindcss build -i .next/static/css/app/(site)/layout.css -o public/admin/main.css"
   },
   "dependencies": {
+    "@plaiceholder/next": "^3.0.0",
     "@types/node": "20.3.2",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
@@ -18,10 +19,12 @@
     "js-yaml": "^4.1.0",
     "netlify-cms-app": "^2.15.72",
     "next": "^13.4.12",
+    "plaiceholder": "^3.0.0",
     "postcss": "8.4.24",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
+    "sharp": "^0.32.4",
     "tailwindcss": "3.3.2",
     "typescript": "5.1.5"
   },

@@ -18,12 +18,14 @@ export type Show = {
 }
 
 export type HomePageContent = {
+    backgroundImage: string
     title: string
     subtitle: string
     featuredVideo: string
 }
 
 export type AboutPageContent = {
+    backgroundImage: string
     title: string
     subtitle: string
     paragraph: string
