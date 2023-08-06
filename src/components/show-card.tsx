@@ -10,8 +10,6 @@ import Link from 'next/link'
 export default function ShowCard({ show }: { show: Show }) {
   const addressString = show.address.split(",")[0];
 
-  console.log('hi');
-  console.log(show.start);
   let showStartDateTime = new Date(show.date);
   showStartDateTime.setHours(parseInt(show.start.slice(1, 3)) + 24, parseInt(show.start.slice(3, 5)));
   let showEndDateTime = new Date(show.date);

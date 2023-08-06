@@ -37,7 +37,7 @@ export default function Home({ pageText, contactPageText, allShows, bgImgPlaceho
             <Link href={contactPageText.youtube} target="_blank">
               <BsYoutube className="text-accentcol hover:text-accentcol/80" />
             </Link>
-            <Link href={contactPageText.email} target="_blank">
+            <Link href={`mailto:${contactPageText.email}`} target="_blank">
               <BsEnvelopeAt className="text-accentcol hover:text-accentcol/80" />
             </Link>
           </div>
