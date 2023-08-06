@@ -8,44 +8,51 @@ import IframePreviewWrapper from './iframe-wrapper';
 
 export default function ShowCardPreview({ entry, getAsset }: any) {
 
-    const show = {
-        title: entry.getIn(['data', 'title']),
-        venue: entry.getIn(['data', 'venue']),
-        address: entry.getIn(['data', 'address']),
-        date: new Date(entry.getIn(['data', 'date'])),
-        start: entry.getIn(['data', 'start']),
-        end: entry.getIn(['data', 'end']),
-        description: entry.getIn(['data', 'description']),
-        image: getAsset(entry.getIn(['data', 'image'])).url,
-        imagePosition: entry.getIn(['data', 'imagePosition']),
-    } as Show;
+  const show = {
+    title: entry.getIn(['data', 'title']),
+    venue: entry.getIn(['data', 'venue']),
+    address: entry.getIn(['data', 'address']),
+    date: new Date(entry.getIn(['data', 'date'])),
+    start: `${entry.getIn(['data', 'start'])}`,
+    end: `${entry.getIn(['data', 'end'])}`,
+    description: entry.getIn(['data', 'description']),
+    image: getAsset(entry.getIn(['data', 'image'])).url,
+    imagePosition: entry.getIn(['data', 'imagePosition']),
+  } as Show;
 
-    return (
-        <PreviewWrapper>
-            <div className="w-full h-full flex flex-col p-20">
-                <iframe
-                    width="630px"
-                    height="300px"
-                    srcDoc={ReactDOMServer.renderToString(
-                        <IframePreviewWrapper>
-                            <div className="w-[532px] p-4 bg-bglightcol">
-                                <ShowCard show={show} />
-                            </div>
-                        </IframePreviewWrapper>
-                    )}
-                ></iframe>
-                <iframe
-                    width="425px"
-                    height="300px"
-                    srcDoc={ReactDOMServer.renderToString(
-                        <IframePreviewWrapper>
-                            <div className="w-[400px] p-4 bg-bglightcol">
-                                <ShowCard show={show} />
-                            </div>
-                        </IframePreviewWrapper>
-                    )}
-                ></iframe>
-            </div>
-        </PreviewWrapper>
-    )
+  if (!show.start.startsWith('\"')) {
+    show.start = `"${show.start}"`;
+  }
+  if (!show.end.startsWith('\"')) {
+    show.end = `"${show.end}"`;
+  }
+
+  return (
+    <PreviewWrapper>
+      <div className="w-full h-full flex flex-col p-20">
+        <iframe
+          width="630px"
+          height="300px"
+          srcDoc={ReactDOMServer.renderToString(
+            <IframePreviewWrapper>
+              <div className="w-[532px] p-4 bg-bglightcol">
+                <ShowCard show={show} />
+              </div>
+            </IframePreviewWrapper>
+          )}
+        ></iframe>
+        <iframe
+          width="425px"
+          height="300px"
+          srcDoc={ReactDOMServer.renderToString(
+            <IframePreviewWrapper>
+              <div className="w-[400px] p-4 bg-bglightcol">
+                <ShowCard show={show} />
+              </div>
+            </IframePreviewWrapper>
+          )}
+        ></iframe>
+      </div>
+    </PreviewWrapper>
+  )
 }

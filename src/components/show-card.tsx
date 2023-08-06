@@ -10,6 +10,8 @@ import Link from 'next/link'
 export default function ShowCard({ show }: { show: Show }) {
   const addressString = show.address.split(",")[0];
 
+  console.log('hi');
+  console.log(show.start);
   let showStartDateTime = new Date(show.date);
   showStartDateTime.setHours(parseInt(show.start.slice(1, 3)) + 24, parseInt(show.start.slice(3, 5)));
   let showEndDateTime = new Date(show.date);
@@ -74,9 +76,9 @@ export default function ShowCard({ show }: { show: Show }) {
         </div>
       </div>
       <div className="absolute top-0 right-0 w-[50px] aspect-[1.75/2.1] z-10 md:hidden">
-        <Image src={show.image} fill className={`object-cover ${show.imagePosition} bg-accentcol`} alt="" sizes="50px" />
+        <Image src={show.image} fill className={`object-cover ${show.imagePosition} saturate-150 contrast-125 brightness-110`} alt="" sizes="50px" />
         <div className="absolute w-full h-full bg-accentcol/20"></div>
-        <div className="absolute w-full h-full bg-bgcol/40"></div>
+        <div className="absolute w-full h-full bg-bgcol/20"></div>
         <div className="w-full h-full absolute border border-accentcol"></div>
         {/* <BackgroundImage src={show.image} gradientDirClass='bg-gradient-to-r' middleColourPercentClass='via-50%' fromClass="from-bglightcol" toClass="to-bglightcol/70" /> */}
       </div>
