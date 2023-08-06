@@ -33,7 +33,7 @@ export default function Form() {
   };
 
   return (
-    <form name="contact" method="POST" data-netlify="true" onSubmit={onSubmit} data-netlify-honeypot="bot-field" className="h-full flex flex-col gap-8 bg-bglightcol p-8 relative z-10">
+    <form name="contact" method="POST" data-netlify="true" onSubmit={onSubmit} data-netlify-honeypot="bot-field" className="h-full flex flex-col gap-8 bg-bglightcol p-8 relative z-10 grain">
       {/* <input type="hidden" name="subject" value="mattausgretzinger.com form submission" /> */}
       <input type="hidden" name="form-name" value="contact" />
 

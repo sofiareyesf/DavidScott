@@ -19,8 +19,8 @@ export default function About({ pageText, bgImgPlaceholder }: { pageText: AboutP
           </p>
         </div>
       </div>
-      <div className="h-screen bg-texttint py-4 lg:py-10 relative flex">
-        <div className="w-full h-full pb-[72px] md:pb-0 flex">
+      <div className="h-screen bg-texttint py-4 lg:py-10 relative flex grain">
+        <div className="w-full h-full pb-[72px] md:pb-0 flex z-10">
           <div id="about-cards" className="w-full h-full relative overflow-x-scroll md:overflow-x-auto">
             <div className="w-fit md:w-full h-full flex gap-4 lg:gap-10 absolute bottom-0 px-4 lg:px-10">
               <div className="basis-1/3 relative min-w-[280px] md:min-w-0">

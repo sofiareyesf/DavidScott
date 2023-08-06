@@ -7,8 +7,8 @@ import { BsEnvelopeAt, BsInstagram, BsYoutube } from "react-icons/bs";
 
 export default function Contact({ pageText }: { pageText: ContactPageContent }) {
   return (
-    <div className="lg:h-screen p-2 sm:p-10 lg:p-20 pt-20 sm:pt-20 flex flex-col lg:flex-row gap-10">
-      <div className="lg:basis-1/2 flex flex-col gap-8">
+    <div className="lg:h-screen p-2 sm:p-10 lg:p-20 pt-20 sm:pt-20 flex flex-col lg:flex-row gap-10 bg-bgcol grain relative">
+      <div className="lg:basis-1/2 flex flex-col gap-8 z-10">
         <h1 className="text-7xl font-dancing text-accentcol">{pageText.title}</h1>
         <p className="text-xl whitespace-pre-wrap">
           {renderParagraph(pageText.blurb)}

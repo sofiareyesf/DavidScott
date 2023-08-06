@@ -58,8 +58,8 @@ export default function Home({ pageText, contactPageText, allShows, bgImgPlaceho
 
       <Divider />
 
-      <div className="min-[1100px]:h-screen bg-bglightcol flex items-center relative">
-        <div className="w-fit mx-auto min-[1100px]:w-full h-fit flex flex-col min-[1100px]:flex-row px-4 md:px-6 py-10 gap-14 min-[1100px]:gap-8">
+      <div className="min-[1100px]:h-screen bg-bglightcol flex items-center relative grain">
+        <div className="w-fit mx-auto min-[1100px]:w-full h-fit flex flex-col min-[1100px]:flex-row px-4 md:px-6 py-10 gap-14 min-[1100px]:gap-8 z-10">
           <div className="w-fit min-[1100px]:basis-[58%]">
             <div className="min-[1100px]:w-[600px] flex flex-col gap-8">
               <h1 className="text-5xl min-[1060px]:text-6xl font-bold -mb-3">{showToDisplay.pastShow ? "Recent Show" : "Next Show"}</h1>
@@ -80,7 +80,7 @@ export default function Home({ pageText, contactPageText, allShows, bgImgPlaceho
           <div className="w-full min-[1100px]:basis-[42%]">
             <div className="min-[1100px]:w-[434px] flex flex-col gap-8">
               <h1 className="text-5xl min-[1060px]:text-6xl font-bold -mb-3">Featured Video</h1>
-              <div className="w-full aspect-[5.6/3.15] relative">
+              <div className="w-full aspect-[5.6/3.15] relative grain">
                 <div className="w-full h-full absolute -top-2 -left-2 border border-accentcol pointer-events-none"></div>
                 <div className="absolute bg-texttint pointer-events-none"></div>
                 <iframe width="100%" height="100%" src={pageText.featuredVideo} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="absolute" />
