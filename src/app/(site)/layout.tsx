@@ -18,19 +18,19 @@ const dancing = Dancing_Script({
 
 export const metadata: Metadata = {
     title: 'Mattaus Gretzinger - Toronto based Alto Saxophonist & Composer',
-    description: "",
-    keywords: '',
-    // openGraph: {
-    //     title: 'Mattaus Gretzinger - Toronto based Alto Saxophonist & Composer',
-    //     description: "",
-    //     url: 'https://mattausgretzinger.com',
-    //     images: {
-    //         url: '/images/opengraph-image.png',
-    //         alt: 'Card displaying information about Owen Gretzinger: image, logo, name, titles, and links.'
-    //     },
-    //     locale: 'en_US',
-    //     type: 'website',
-    // },
+    description: "I'm a jazz musician from Toronto. Visit my website to see my upcoming shows, book me for a gig, or listen to my music!",
+    keywords: 'Mattaus Gretzinger, jazz, saxophone, sax, bass, Toronto, composer, teacher, The Rex, The Emmet Ray, mattgretz',
+    openGraph: {
+        title: 'Mattaus Gretzinger - Toronto based Alto Saxophonist & Composer',
+        description: "I'm a jazz musician from Toronto. Visit my website to see my upcoming shows, book me for a gig, or listen to my music!",
+        url: 'https://mattausgretzinger.com',
+        images: {
+            url: '/images/opengraph-image.png',
+            alt: 'Card displaying information about Mattaus Gretzinger: image, logo, name, titles, and links.'
+        },
+        locale: 'en_US',
+        type: 'website',
+    },
     robots: {
         index: true,
         follow: true,
