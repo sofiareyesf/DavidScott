@@ -50,7 +50,7 @@ export default function Nav() {
         <button title="Close navigation" className="absolute top-3 right-3" onClick={() => { setMobileNavOpen(false) }}>
           <BsX className="stroke-textcol stroke-1" size={50} />
         </button>
-        <div className="w-full h-full flex flex-col items-center justify-center gap-5 text-5xl underline">
+        <div className="w-full h-full flex flex-col items-center justify-center gap-5 text-5xl underline font-bold">
           {mobileNavOrder.map(number => navItems[number]).map(item => (
             <Link key={item.name} className={`${pathname === item.path ? "text-accentcol" : "text-textcol"}`} href={item.path} onClick={() => setMobileNavOpen(false)}>{item.name}</Link>
           ))}

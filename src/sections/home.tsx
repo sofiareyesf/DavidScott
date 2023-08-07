@@ -59,8 +59,8 @@ export default function Home({ pageText, contactPageText, allShows, bgImgPlaceho
       <Divider />
 
       <div className="min-[1100px]:h-screen bg-bglightcol flex items-center relative grain">
-        <div className="w-fit mx-auto min-[1100px]:w-full h-fit flex flex-col min-[1100px]:flex-row px-4 md:px-6 py-10 gap-14 min-[1100px]:gap-8 z-10">
-          <div className="w-fit min-[1100px]:basis-[58%]">
+        <div className="w-full min-[650px]:w-fit mx-auto min-[1100px]:w-full h-fit flex flex-col min-[1100px]:flex-row px-4 md:px-6 py-10 gap-14 min-[1100px]:gap-8 z-10">
+          <div className="w-full min-[650px]:w-fit min-[1100px]:basis-[58%]">
             <div className="min-[1100px]:w-[600px] flex flex-col gap-8">
               <h1 className="text-5xl min-[1060px]:text-6xl font-bold -mb-3">{showToDisplay.pastShow ? "Recent Show" : "Next Show"}</h1>
               {/* <div className="aspectwrapper w-full aspect-[2.5/1.05]">
@@ -69,7 +69,7 @@ export default function Home({ pageText, contactPageText, allShows, bgImgPlaceho
               </div>
             </div> */}
               {/* <RenderCard show={nextShow} /> */}
-              <div className="w-full">
+              <div className="w-full min-[650px]:w-[600px]">
                 <ShowCard show={showToDisplay.showInfo} />
               </div>
               {/* <div className="max-w-[650px] aspect-[6.5/3.2] bg-bgcol"></div> */}
