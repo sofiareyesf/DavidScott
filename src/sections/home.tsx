@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import ButtonLink from '@/components/button'
-import { BsInstagram, BsYoutube, BsEnvelopeAt } from 'react-icons/bs';
+import { BsInstagram, BsYoutube, BsEnvelope } from 'react-icons/bs';
 import BackgroundImage, { BackgroundImage2 } from '@/components/bg-image'
 import Divider from '@/components/divider';
 import { ContactPageContent, HomePageContent, Show } from '@/lib/content-types';
@@ -27,18 +27,18 @@ export default function Home({ pageText, contactPageText, allShows, bgImgPlaceho
   return (
     <>
       <div className="h-screen relative">
-        <BackgroundImage src={pageText.backgroundImage} gradientDirClass='bg-gradient-to-t' middleColourPercentClass='via-25%' priority={true} sizes="100vw" blurDataURL={bgImgPlaceholder} />
+        <BackgroundImage src={pageText.backgroundImage} alt='Picture of me playing the saxophone' gradientDirClass='bg-gradient-to-t' middleColourPercentClass='via-25%' priority={true} sizes="100vw" blurDataURL={bgImgPlaceholder} />
 
         <div className="absolute bottom-0 w-full flex flex-col items-center text-center">
           <div className="flex gap-20 md:gap-28 pb-2 z-10 text-3xl md:text-4xl">
             <Link href={contactPageText.instagram} target="_blank">
-              <BsInstagram className="text-accentcol hover:text-accentcol/80" />
+              <BsInstagram title='Instagram' className="text-accentcol hover:text-accentcol/80" />
             </Link>
             <Link href={contactPageText.youtube} target="_blank">
-              <BsYoutube className="text-accentcol hover:text-accentcol/80" />
+              <BsYoutube title='Youtube' className="text-accentcol hover:text-accentcol/80" />
             </Link>
             <Link href={`mailto:${contactPageText.email}`} target="_blank">
-              <BsEnvelopeAt className="text-accentcol hover:text-accentcol/80" />
+              <BsEnvelope title='Email' className="text-accentcol hover:text-accentcol/80" />
             </Link>
           </div>
           <svg viewBox="0 -12 140 15" width="97%" height="100%" className="block md:hidden">

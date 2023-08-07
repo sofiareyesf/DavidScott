@@ -2,7 +2,7 @@ import Form from "@/components/form";
 import { ContactPageContent } from "@/lib/content-types";
 import renderParagraph from "@/lib/render-paragraph";
 import Link from "next/link";
-import { BsEnvelopeAt, BsInstagram, BsYoutube } from "react-icons/bs";
+import { BsEnvelope, BsInstagram, BsYoutube } from "react-icons/bs";
 
 
 export default function Contact({ pageText }: { pageText: ContactPageContent }) {
@@ -23,7 +23,7 @@ export default function Contact({ pageText }: { pageText: ContactPageContent }) 
             @{pageText.youtube.slice(25)}
           </Link>
           <Link href={`mailto:${pageText.email}`} target="_blank" className="flex items-center gap-3 text-accentcol hover:text-accentcol/80 w-min hover:underline overflow-hidden">
-            <BsEnvelopeAt className="" />
+            <BsEnvelope className="" />
             {pageText.email}
           </Link>
         </div>
