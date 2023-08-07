@@ -14,7 +14,7 @@ export default function About({ pageText, bgImgPlaceholder }: { pageText: AboutP
         <div className="p-4 pt-20 md:p-10 md:pt-20 lg:p-20 relative z-10">
           <h1 className="text-5xl sm:text-7xl font-bold">{pageText.title}</h1>
           <h2 className="text-4xl font-dancing text-accentcol mb-10">{pageText.subtitle}</h2>
-          <p className="whitespace-pre-wrap md:max-w-[600px] lg:max-w-[50%]">
+          <p className="whitespace-pre-wrap md:max-w-[600px] lg:max-w-[50%] text-lg">
             {renderParagraph(pageText.paragraph)}
           </p>
         </div>
@@ -36,19 +36,19 @@ export default function About({ pageText, bgImgPlaceholder }: { pageText: AboutP
             <div className="w-fit md:w-full h-fit flex gap-4 lg:gap-10 absolute bottom-0 px-4 lg:px-10">
               <div className="basis-1/3 p-4 min-w-[280px] md:min-w-0">
                 <h2 className="text-6xl md:text-5xl lg:text-6xl xl:text-8xl font-dancing text-accentcol">{pageText.cardTitle1}</h2>
-                <p className="text-base leading-4 lg:text-[1.5vw] lg:leading-[1.5vw] min-[1724px]:text-2xl min-[1724px]:leading-7 object-scale-down mt-2">
+                <p className="text-xl mt-2">
                   {renderParagraph(pageText.cardText1)}
                 </p>
               </div>
               <div className="basis-1/3 p-4 min-w-[280px] md:min-w-0">
                 <h2 className="text-6xl md:text-5xl lg:text-6xl xl:text-8xl font-dancing text-accentcol">{pageText.cardTitle2}</h2>
-                <p className="text-base leading-4 lg:text-[1.5vw] lg:leading-[1.5vw] min-[1724px]:text-2xl min-[1724px]:leading-7 object-scale-down mt-2">
+                <p className="text-xl mt-2">
                   {renderParagraph(pageText.cardText2)}
                 </p>
               </div>
               <div className="basis-1/3 p-4 min-w-[280px] md:min-w-0">
                 <h2 className="text-6xl md:text-5xl lg:text-6xl xl:text-8xl font-dancing text-accentcol">{pageText.cardTitle3}</h2>
-                <p className="text-base leading-4 lg:text-[1.5vw] lg:leading-[1.5vw] min-[1724px]:text-2xl min-[1724px]:leading-7 object-scale-down mt-2">
+                <p className="text-xl mt-2">
                   {renderParagraph(pageText.cardText3)}
                 </p>
               </div>

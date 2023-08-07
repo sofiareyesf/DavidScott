@@ -3,7 +3,7 @@
 import { usePathname, useRouter } from 'next/navigation';
 import Link from "next/link";
 import { BsList, BsX } from 'react-icons/bs';
-import { FaHome } from 'react-icons/fa';
+import { BiSolidHome } from 'react-icons/bi';
 import { useEffect, useState } from 'react';
 
 const navItems = [
@@ -30,16 +30,16 @@ export default function Nav() {
   return (
     <>
       <div className={`fixed z-50 w-screen ${scrollY > 50 ? "bg-bgcol/70" : ""} transition-colors duration-300`}>
-        <div className={`hidden md:flex justify-center gap-16 font-bold text-2xl underline py-3`}>
+        <div className={`hidden md:flex justify-center gap-16 font-bold text-2xl py-3`}>
           {navItems.map(item => (
-            <Link key={item.name} className={`${pathname === item.path ? "text-accentcol" : "text-textcol hover:text-[rgb(254,246,216)]"}`} href={item.path}>
+            <Link key={item.name} className={`${pathname === item.path ? "text-accentcol" : "text-textcol"} hover:text-3xl transition-all`} href={item.path}>
               {item.name}
             </Link>
           ))}
         </div>
         <div className="flex md:hidden justify-between py-3 mx-3">
           <button title="open navigation drawer" className="lg:hidden" onClick={() => pathname === "/" ? window.location.href = "/" : router.push("/")}>
-            <FaHome className="stroke-textcol stroke-1" size={50} />
+            <BiSolidHome className="stroke-textcol" size={50} />
           </button>
           <button title="Open navigation" className={`lg:hidden ${mobileNavOpen ? "hidden" : "block"}`} onClick={() => { setMobileNavOpen(true) }}>
             <BsList className="stroke-textcol stroke-1" size={50} />

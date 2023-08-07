@@ -3,9 +3,9 @@ backend:
   name: git-gateway
   branch: main
 
-#site_url: https://mattausgretzinger.com
-#display_url: https://mattausgretzinger.com
-display_url: https://magical-figolla-d19d49.netlify.app/
+site_url: https://mattausgretzinger.com
+display_url: https://mattausgretzinger.com
+#display_url: https://magical-figolla-d19d49.netlify.app/
 
 media_folder: "public/images/uploads" # Where media files will be stored
 public_folder: "/images/uploads" # Where the media files can be accesed from the server

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         url: 'https://mattausgretzinger.com',
         images: {
             url: '/images/opengraph-image.png',
-            alt: 'Card displaying information about Mattaus Gretzinger: image, logo, name, titles, and links.'
+            alt: 'Mattaus Gretzinger - Toronto based Alto Saxophonist & Composer'
         },
         locale: 'en_US',
         type: 'website',

@@ -30,15 +30,15 @@ export default function Home({ pageText, contactPageText, allShows, bgImgPlaceho
         <BackgroundImage src={pageText.backgroundImage} alt='Picture of me playing the saxophone' gradientDirClass='bg-gradient-to-t' middleColourPercentClass='via-25%' priority={true} sizes="100vw" blurDataURL={bgImgPlaceholder} />
 
         <div className="absolute bottom-0 w-full flex flex-col items-center text-center">
-          <div className="flex gap-20 md:gap-28 pb-2 z-10 text-3xl md:text-4xl">
+          <div className="flex gap-20 md:gap-28 pb-2 z-10 text-3xl md:text-4xl items-end">
             <Link href={contactPageText.instagram} target="_blank">
-              <BsInstagram title='Instagram' className="text-accentcol hover:text-accentcol/80" />
+              <BsInstagram title='Instagram' className="text-accentcol lg:hover:text-5xl lg:transition-all" />
             </Link>
             <Link href={contactPageText.youtube} target="_blank">
-              <BsYoutube title='Youtube' className="text-accentcol hover:text-accentcol/80" />
+              <BsYoutube title='Youtube' className="text-accentcol lg:hover:text-5xl lg:transition-all" />
             </Link>
             <Link href={`mailto:${contactPageText.email}`} target="_blank">
-              <BsEnvelope title='Email' className="text-accentcol hover:text-accentcol/80" />
+              <BsEnvelope title='Email' className="text-accentcol lg:hover:text-5xl lg:transition-all" />
             </Link>
           </div>
           <svg viewBox="0 -12 140 15" width="97%" height="100%" className="block md:hidden">
