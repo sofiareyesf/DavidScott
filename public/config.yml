@@ -52,14 +52,14 @@ collections:
         date_format: false
         time_format: "H:mma"
         format: "[\"]HHmm[\"]"
-        default: 2000
+        default: '"2000"'
       - label: "Show end time"
         name: "end"
         widget: "datetime"
         date_format: false
         time_format: "H:mma"
         format: "[\"]HHmm[\"]"
-        default: 2200
+        default: '"2200"'
       - label: "Description"
         name: "description"
         widget: "markdown"
