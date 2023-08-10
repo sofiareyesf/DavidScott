@@ -35,7 +35,7 @@ export default function ShowCardPreview({ entry, getAsset }: any) {
           height="300px"
           srcDoc={ReactDOMServer.renderToString(
             <IframePreviewWrapper>
-              <div className="w-[532px] p-4 bg-bglightcol">
+              <div className="w-[600px] p-4 bg-bglightcol">
                 <ShowCard show={show} />
               </div>
             </IframePreviewWrapper>
