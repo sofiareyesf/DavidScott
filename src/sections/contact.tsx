@@ -3,6 +3,7 @@ import { ContactPageContent } from "@/lib/content-types";
 import renderParagraph from "@/lib/render-paragraph";
 import Link from "next/link";
 import { BsEnvelope, BsInstagram, BsYoutube } from "react-icons/bs";
+import { MobileNavItems } from "@/components/nav";
 
 
 export default function Contact({ pageText }: { pageText: ContactPageContent }) {
@@ -29,11 +30,13 @@ export default function Contact({ pageText }: { pageText: ContactPageContent }) 
         </div>
       </div>
       <div className="lg:basis-1/2">
-        <div className="max-w-[450px] h-fit mb-10 lg:my-0 mx-auto relative">
+        <div className="max-w-[450px] h-fit mb-0 lg:my-0 mx-auto relative">
           <div className="w-full h-full absolute -top-2 -left-2 border border-accentcol pointer-events-none"></div>
           <Form />
-
         </div>
+      </div>
+      <div className="md:hidden flex flex-col items-center text-5xl font-bold gap-5 underline mb-10">
+        <MobileNavItems />
       </div>
     </div>
   )

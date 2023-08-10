@@ -10,7 +10,7 @@ export default function Videos({ pageText }: { pageText: VideosPageContent }) {
     <>
       <div className="bg-bglightcol pt-10 pb-20 px-4 relative grain">
         <div className="relative z-10">
-          <h1 className="text-5xl md:text-7xl font-dancing text-accentcol text-center mt-10">{pageText.title}</h1>
+          <h1 className="text-7xl font-dancing text-accentcol text-center mt-10">{pageText.title}</h1>
           <Link href="https://www.youtube.com/@mattgretz" target="_blank" className="flex items-center gap-3 text-accentcol hover:text-accentcol/80 w-min mx-auto text-2xl font-medium whitespace-nowrap mb-10 hover:underline">
             {pageText.subtitle}
             <BsYoutube className="" />

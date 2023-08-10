@@ -51,13 +51,18 @@ export default function Nav() {
           <BsX className="stroke-textcol stroke-1" size={50} />
         </button>
         <div className="w-full h-full flex flex-col items-center justify-center gap-5 text-5xl underline font-bold">
-          {mobileNavOrder.map(number => navItems[number]).map(item => (
-            <Link key={item.name} className={`${pathname === item.path ? "text-accentcol" : "text-textcol"}`} href={item.path} onClick={() => setMobileNavOpen(false)}>{item.name}</Link>
-          ))}
+          <MobileNavItems setMobileNavOpen={setMobileNavOpen} />
         </div>
       </div>
     </>
   )
+}
+
+export function MobileNavItems({setMobileNavOpen}: {setMobileNavOpen?: (open: boolean) => void}) {
+  const pathname = usePathname();
+  return mobileNavOrder.map(number => navItems[number]).map(item => (
+    <Link key={item.name} className={`${pathname === item.path ? "text-accentcol" : "text-textcol"}`} href={item.path} onClick={() => setMobileNavOpen ? setMobileNavOpen(false) : {}}>{item.name}</Link>
+  ))
 }
 
 // return (
