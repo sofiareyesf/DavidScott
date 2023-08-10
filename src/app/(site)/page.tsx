@@ -9,11 +9,10 @@ export default async function HomePage() {
   const pageText: HomePageContent = (await getCMSFileContent("home.yml")) as HomePageContent;
   const contactPageText: ContactPageContent = (await getCMSFileContent("contact.yml")) as ContactPageContent;
   const allShows: Show[] = await getCollectionContent("shows") as Show[];
-  const bgImgPlaceholder = await getImagePlaceholder(pageText.backgroundImage);
   
   return (
     <div className="flex flex-col relative">
-      <Home pageText={pageText} contactPageText={contactPageText} allShows={allShows} bgImgPlaceholder={bgImgPlaceholder} />
+      <Home pageText={pageText} contactPageText={contactPageText} allShows={allShows} getImagePlaceholder={getImagePlaceholder} />
       <Contact pageText={contactPageText} />
     </div>
   )

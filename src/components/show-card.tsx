@@ -7,7 +7,7 @@ import { FaMapMarkerAlt } from 'react-icons/fa'
 import Link from 'next/link'
 
 
-export default function ShowCard({ show }: { show: Show }) {
+export default function ShowCard({ show, getImagePlaceholder }: { show: Show, getImagePlaceholder?: (src: string) => Promise<string> }) {
   const addressString = show.address.split(",")[0];
 
   let showStartDateTime = new Date(show.date);
@@ -23,11 +23,12 @@ export default function ShowCard({ show }: { show: Show }) {
       <div className="flex gap-3 w-full h-full">
         <div className="aspect-[1.75/2.1] h-full relative hidden md:block">
           <div className="w-full h-full absolute -top-2 -left-2 border border-accentcol"></div>
-          <div className="w-full h-full absolute top-0 grain">
+          <BackgroundImage src={show.image} alt={`${show.title} at {show.venue} thumbnail`} sizes="210px" isShowCard={true} getImagePlaceholder={getImagePlaceholder} />
+          {/* <div className="w-full h-full absolute top-0 grain">
             <Image src={show.image} fill className={`object-cover ${show.imagePosition} saturate-150 contrast-125 brightness-110`} alt={`${show.title} at {show.venue} thumbnail`} sizes="210px" />
             <div className="absolute w-full h-full bg-accentcol/20"></div>
             <div className="absolute w-full h-full bg-bgcol/20"></div>
-          </div>
+          </div> */}
         </div>
         <div className="w-full md:h-full md:max-h-full relative z-20 flex flex-col justify-between">
           <div className="h-fit">
@@ -74,11 +75,12 @@ export default function ShowCard({ show }: { show: Show }) {
         </div>
       </div>
       <div className="absolute top-0 right-0 w-[50px] aspect-[1.75/2.1] z-10 md:hidden">
-        <Image src={show.image} fill className={`object-cover ${show.imagePosition} saturate-150 contrast-125 brightness-110`} alt={`${show.title} at {show.venue} thumbnail`} sizes="50px" />
+      <BackgroundImage src={show.image} alt={`${show.title} at {show.venue} thumbnail`} sizes="50px" isShowCard={true} getImagePlaceholder={getImagePlaceholder} />
+        {/* <Image src={show.image} fill className={`object-cover ${show.imagePosition} saturate-150 contrast-125 brightness-110`} alt={`${show.title} at {show.venue} thumbnail`} sizes="50px" />
         <div className="absolute w-full h-full bg-accentcol/20"></div>
         <div className="absolute w-full h-full bg-bgcol/20"></div>
-        <div className="w-full h-full absolute border border-accentcol"></div>
-        {/* <BackgroundImage src={show.image} gradientDirClass='bg-gradient-to-r' middleColourPercentClass='via-50%' fromClass="from-bglightcol" toClass="to-bglightcol/70" /> */}
+        <div className="w-full h-full absolute border border-accentcol"></div> */}
+        {/* <BackgroundImage src={show.image} alt={`${show.title} at {show.venue} thumbnail`} gradientDirClass='bg-gradient-to-r' middleColourPercentClass="via-35%" sizes="50px" /> */}
       </div>
     </div>
   )

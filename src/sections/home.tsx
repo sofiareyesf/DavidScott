@@ -1,13 +1,12 @@
 import Link from 'next/link'
 import ButtonLink from '@/components/button'
 import { BsInstagram, BsYoutube, BsEnvelope } from 'react-icons/bs';
-import BackgroundImage, { BackgroundImage2 } from '@/components/bg-image'
+import BackgroundImage from '@/components/bg-image'
 import Divider from '@/components/divider';
 import { ContactPageContent, HomePageContent, Show } from '@/lib/content-types';
 import ShowCard from '@/components/show-card';
-import Image from 'next/image'
 
-export default function Home({ pageText, contactPageText, allShows, bgImgPlaceholder }: { pageText: HomePageContent, contactPageText: ContactPageContent, allShows: Show[], bgImgPlaceholder?: string }) {
+export default function Home({ pageText, contactPageText, allShows, getImagePlaceholder }: { pageText: HomePageContent, contactPageText: ContactPageContent, allShows: Show[], getImagePlaceholder: (src: string) => Promise<string> }) {
   allShows.sort();
   const now = new Date();
   let showToDisplay = { showInfo: allShows[allShows.length - 1], pastShow: true };
@@ -27,7 +26,7 @@ export default function Home({ pageText, contactPageText, allShows, bgImgPlaceho
   return (
     <>
       <div className="h-screen relative">
-        <BackgroundImage src={pageText.backgroundImage} alt='Picture of me playing the saxophone' gradientDirClass='bg-gradient-to-t' middleColourPercentClass='via-25%' priority={true} sizes="100vw" blurDataURL={bgImgPlaceholder} />
+        <BackgroundImage src={pageText.backgroundImage} alt='Picture of me playing the saxophone' gradientDirClass='bg-gradient-to-t' middleColourPercentClass='via-25%' priority={true} sizes="100vw" getImagePlaceholder={getImagePlaceholder} />
 
         <div className="absolute bottom-0 w-full flex flex-col items-center text-center">
           <div className="flex gap-20 md:gap-28 pb-2 z-10 text-3xl md:text-4xl items-end">
@@ -70,7 +69,7 @@ export default function Home({ pageText, contactPageText, allShows, bgImgPlaceho
             </div> */}
               {/* <RenderCard show={nextShow} /> */}
               <div className="w-full min-[650px]:w-[600px]">
-                <ShowCard show={showToDisplay.showInfo} />
+                <ShowCard show={showToDisplay.showInfo} getImagePlaceholder={getImagePlaceholder} />
               </div>
               {/* <div className="max-w-[650px] aspect-[6.5/3.2] bg-bgcol"></div> */}
               <ButtonLink type="Secondary" text="All Upcoming Shows" link="/shows" widthClass="w-[250px] lg:w-[360px]" />

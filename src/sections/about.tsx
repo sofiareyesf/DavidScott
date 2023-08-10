@@ -1,15 +1,14 @@
-import BackgroundImage, { BackgroundImage2 } from "@/components/bg-image";
+import BackgroundImage from "@/components/bg-image";
 import { AboutPageContent } from "@/lib/content-types";
 import AboutCardsButton from "@/components/about-cards-buttons";
 import renderParagraph from "@/lib/render-paragraph";
-import Image from 'next/image';
 
-export default function About({ pageText, imgPlaceHolders }: { pageText: AboutPageContent, imgPlaceHolders: { main?: string, card1?: string, card2?: string, card3?: string } }) {
+export default function About({ pageText, getImagePlaceholder }: { pageText: AboutPageContent, getImagePlaceholder?: (src: string) => Promise<string> }) {
   return (
     <>
       <div className="relative">
         <div className="w-full h-full absolute top-0">
-          <BackgroundImage src={pageText.backgroundImage} alt='Picture of me' gradientDirClass='bg-gradient-to-r' middleColourPercentClass="via-35%" objectPositionClass="object-[70%_0%] md:object-center" priority={true} sizes="100vw" blurDataURL={imgPlaceHolders.main} />
+          <BackgroundImage src={pageText.backgroundImage} alt='Picture of me' gradientDirClass='bg-gradient-to-r' middleColourPercentClass="via-35%" objectPositionClass="object-[70%_0%] md:object-center" priority={true} sizes="100vw" getImagePlaceholder={getImagePlaceholder} />
         </div>
         <div className="p-4 pt-20 md:p-10 md:pt-20 lg:p-20 relative z-10">
           <h1 className="text-5xl sm:text-7xl font-bold">{pageText.title}</h1>
@@ -24,13 +23,13 @@ export default function About({ pageText, imgPlaceHolders }: { pageText: AboutPa
           <div id="about-cards" className="w-full h-full relative overflow-x-scroll md:overflow-x-auto">
             <div className="w-fit md:w-full h-full flex gap-4 lg:gap-10 absolute bottom-0 px-4 lg:px-10">
               <div className="basis-1/3 relative min-w-[280px] md:min-w-0">
-                <BackgroundImage src={pageText.cardImage1} alt={`${pageText.cardTitle1} thumbnail`} gradientDirClass='bg-gradient-to-t' middleColourPercentClass="via-35%" toClass="to-bgcol/20" sizes="(max-width: 630px) 100vw, 33vw" blurDataURL={imgPlaceHolders.card1} />
+                <BackgroundImage src={pageText.cardImage1} alt={`${pageText.cardTitle1} thumbnail`} gradientDirClass='bg-gradient-to-t' middleColourPercentClass="via-35%" toClass="to-bgcol/20" sizes="(max-width: 630px) 100vw, 33vw" getImagePlaceholder={getImagePlaceholder} />
               </div>
               <div className="basis-1/3 relative min-w-[280px] md:min-w-0">
-                <BackgroundImage src={pageText.cardImage2} alt={`${pageText.cardTitle2} thumbnail`} gradientDirClass='bg-gradient-to-t' middleColourPercentClass="via-35%" toClass="to-bgcol/20" sizes="(max-width: 630px) 100vw, 33vw" blurDataURL={imgPlaceHolders.card2} />
+                <BackgroundImage src={pageText.cardImage2} alt={`${pageText.cardTitle2} thumbnail`} gradientDirClass='bg-gradient-to-t' middleColourPercentClass="via-35%" toClass="to-bgcol/20" sizes="(max-width: 630px) 100vw, 33vw" getImagePlaceholder={getImagePlaceholder} />
               </div>
               <div className="basis-1/3 relative min-w-[280px] md:min-w-0">
-                <BackgroundImage src={pageText.cardImage3} alt={`${pageText.cardTitle3} thumbnail`} gradientDirClass='bg-gradient-to-t' middleColourPercentClass="via-35%" toClass="to-bgcol/20" sizes="(max-width: 630px) 100vw, 33vw" blurDataURL={imgPlaceHolders.card3} />
+                <BackgroundImage src={pageText.cardImage3} alt={`${pageText.cardTitle3} thumbnail`} gradientDirClass='bg-gradient-to-t' middleColourPercentClass="via-35%" toClass="to-bgcol/20" sizes="(max-width: 630px) 100vw, 33vw" getImagePlaceholder={getImagePlaceholder} />
               </div>
             </div>
             <div className="w-fit md:w-full h-fit flex gap-4 lg:gap-10 absolute bottom-0 px-4 lg:px-10">

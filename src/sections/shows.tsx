@@ -3,7 +3,7 @@ import ShowCard from '@/components/show-card'
 import Divider from '@/components/divider';
 import renderParagraph from '@/lib/render-paragraph';
 
-export default function Shows({ pageText, allShows }: { pageText: ShowsPageContent, allShows: Show[] }) {
+export default function Shows({ pageText, allShows, getImagePlaceholder }: { pageText: ShowsPageContent, allShows: Show[], getImagePlaceholder?: (src: string) => Promise<string> }) {
   allShows.sort((a, b) => a.slug > b.slug ? 1 : -1);
 
   const upcomingShows: Show[] = [];
@@ -30,7 +30,7 @@ export default function Shows({ pageText, allShows }: { pageText: ShowsPageConte
           <div className="w-full max-w-[600px] flex flex-col mx-auto items-center gap-10">
             {upcomingShows?.length > 0 ?
               upcomingShows.map(show => (
-                <ShowCard key={show.slug} show={show} />
+                <ShowCard key={show.slug} show={show} getImagePlaceholder={getImagePlaceholder} />
               )) :
               <p className="text-2xl font-light text-center leading-10">{renderParagraph(pageText.noUpcoming)}</p>
             }
@@ -38,7 +38,7 @@ export default function Shows({ pageText, allShows }: { pageText: ShowsPageConte
           <h1 className="text-5xl md:text-7xl font-dancing text-accentcol text-center mt-20 mb-10">{pageText.title2}</h1>
           <div className="w-full max-w-[600px] flex flex-col-reverse mx-auto items-center gap-10">
             {pastShows ? pastShows.map(show => (
-              <ShowCard key={show.slug} show={show} />
+              <ShowCard key={show.slug} show={show} getImagePlaceholder={getImagePlaceholder} />
             )) : <p className="text-2xl font-light">No past shows.</p>}
           </div>
         </div>
