@@ -40,7 +40,7 @@ function GetBackgroundImage({ props, blurDataUrl }: { props: BackgroundImageProp
 
   return (
     <div className="w-full h-full absolute top-0 grain">
-      <Image src={blurDataUrl ? blurDataUrl : props.src} fill className={`object-cover bg-accentcol ${props.objectPositionClass ? props.objectPositionClass : ""} saturate-150 contrast-125 brightness-110`} alt={props.alt} priority={props.priority || false} sizes={props.sizes} placeholder={blurDataUrl ? 'blur' : undefined} blurDataURL={blurDataUrl} />
+      <Image src={props.src} fill className={`object-cover bg-accentcol ${props.objectPositionClass ? props.objectPositionClass : ""} saturate-150 contrast-125 brightness-110`} alt={props.alt} priority={props.priority || false} sizes={props.sizes} placeholder={blurDataUrl ? 'blur' : undefined} blurDataURL={blurDataUrl} />
       {!props.isShowCard && // gradient
         <>
           <div className="absolute w-full h-full bg-accentcol/30"></div>
