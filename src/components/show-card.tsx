@@ -45,7 +45,7 @@ export default function ShowCard({ show, getImagePlaceholder }: { show: Show, ge
                   </>
                   :
                   <>
-                    <div className="flex flex-col sm:flex-row">
+                    <div className="flex flex-wrap">
                       <p className="">{show.date.toLocaleDateString("en-US", { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' })},&nbsp;</p>
                       <p className="">{formatTime(show.start)} - {formatTime(show.end)}</p>
                     </div>
@@ -75,7 +75,8 @@ export default function ShowCard({ show, getImagePlaceholder }: { show: Show, ge
         </div>
       </div>
       <div className="absolute top-0 right-0 w-[50px] aspect-[1.75/2.1] z-10 md:hidden">
-      <BackgroundImage src={show.image} alt={`${show.title} at {show.venue} thumbnail`} sizes="50px" isShowCard={true} getImagePlaceholder={getImagePlaceholder} />
+        <BackgroundImage src={show.image} alt={`${show.title} at {show.venue} thumbnail`} sizes="50px" isShowCard={true} getImagePlaceholder={getImagePlaceholder} />
+        <div className="w-full h-full absolute border border-accentcol"></div>
         {/* <Image src={show.image} fill className={`object-cover ${show.imagePosition} saturate-150 contrast-125 brightness-110`} alt={`${show.title} at {show.venue} thumbnail`} sizes="50px" />
         <div className="absolute w-full h-full bg-accentcol/20"></div>
         <div className="absolute w-full h-full bg-bgcol/20"></div>
