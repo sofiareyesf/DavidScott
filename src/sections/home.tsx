@@ -6,7 +6,7 @@ import Divider from '@/components/divider';
 import { ContactPageContent, HomePageContent, Show } from '@/lib/content-types';
 import ShowCard from '@/components/show-card';
 
-export default function Home({ pageText, contactPageText, allShows, getImagePlaceholder }: { pageText: HomePageContent, contactPageText: ContactPageContent, allShows: Show[], getImagePlaceholder: (src: string) => Promise<string> }) {
+export default function Home({ pageText, contactPageText, allShows, getImagePlaceholder }: { pageText: HomePageContent, contactPageText: ContactPageContent, allShows: Show[], getImagePlaceholder?: (src: string) => Promise<string> }) {
   allShows.sort();
   const now = new Date();
   let showToDisplay = { showInfo: allShows[allShows.length - 1], pastShow: true };
