@@ -5,28 +5,18 @@ import BackgroundImage from '@/components/bg-image'
 import Divider from '@/components/divider';
 import { ContactPageContent, HomePageContent, Show } from '@/lib/content-types';
 import ShowCard from '@/components/show-card';
+import processShows from '@/lib/process-shows';
+import { NextShow, NextShowText } from '@/components/show-cards-ordered';
 
-export default function Home({ pageText, contactPageText, allShows, getImagePlaceholder }: { pageText: HomePageContent, contactPageText: ContactPageContent, allShows: Show[], getImagePlaceholder?: (src: string) => Promise<string> }) {
-  allShows.sort();
-  const now = new Date();
-  let showToDisplay = { showInfo: allShows[allShows.length - 1], pastShow: true };
-  if (allShows[allShows.length - 1].date > now) {
-    showToDisplay.pastShow = false;
-    for (let show of allShows) {
-      let showEndDateTime = new Date(show.date);
-      showEndDateTime.setHours(parseInt(show.end.slice(1, 3)) + 24, parseInt(show.end.slice(3, 5)));
-      if (showEndDateTime > now) {
-        showToDisplay = { showInfo: show, pastShow: false };
-        break;
-      }
-    }
-  }
-
+export default function Home({ pageText, contactPageText, allShows }: { pageText: HomePageContent, contactPageText: ContactPageContent, allShows: Show[] }) {
+  
+  const shows = processShows(allShows);
+  const ShowToDisplay = <NextShow shows={shows} />;
 
   return (
     <>
       <div className="h-screen relative">
-        <BackgroundImage src={pageText.backgroundImage} alt='Picture of me playing the saxophone' gradientDirClass='bg-gradient-to-t' middleColourPercentClass='via-25%' priority={true} sizes="100vw" getImagePlaceholder={getImagePlaceholder} />
+        <BackgroundImage src={pageText.backgroundImage} alt='Picture of me playing the saxophone' gradientDirClass='bg-gradient-to-t' middleColourPercentClass='via-25%' priority={true} sizes="100vw"  />
 
         <div className="absolute bottom-0 w-full flex flex-col items-center text-center">
           <div className="flex gap-20 md:gap-28 pb-2 z-10 text-3xl md:text-4xl items-end">
@@ -61,7 +51,7 @@ export default function Home({ pageText, contactPageText, allShows, getImagePlac
         <div className="w-full min-[650px]:w-fit mx-auto min-[1100px]:w-full h-fit flex flex-col min-[1100px]:flex-row px-4 md:px-6 py-10 gap-14 min-[1100px]:gap-8 z-10">
           <div className="w-full min-[650px]:w-fit min-[1100px]:basis-[58%]">
             <div className="min-[1100px]:w-[600px] flex flex-col gap-8">
-              <h1 className="text-5xl min-[1060px]:text-6xl font-bold -mb-3">{showToDisplay.pastShow ? "Recent Show" : "Next Show"}</h1>
+              <h1 className="text-5xl min-[1060px]:text-6xl font-bold -mb-3"><NextShowText shows={shows} /></h1>
               {/* <div className="aspectwrapper w-full aspect-[2.5/1.05]">
               <div className="content">
               <ShowCard show={nextShow} />
@@ -69,7 +59,7 @@ export default function Home({ pageText, contactPageText, allShows, getImagePlac
             </div> */}
               {/* <RenderCard show={nextShow} /> */}
               <div className="w-full min-[650px]:w-[600px]">
-                <ShowCard show={showToDisplay.showInfo} getImagePlaceholder={getImagePlaceholder} />
+                {ShowToDisplay}
               </div>
               {/* <div className="max-w-[650px] aspect-[6.5/3.2] bg-bgcol"></div> */}
               <ButtonLink type="Secondary" text="All Upcoming Shows" link="/shows" widthClass="w-[250px] lg:w-[360px]" />

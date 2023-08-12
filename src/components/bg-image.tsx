@@ -1,6 +1,5 @@
-// import { getImagePlaceholder } from "@/lib/get-image-with-blur";
+import { imagePlaceholders } from "@/lib/image-placeholders";
 import Image from "next/image";
-import { Suspense } from "react";
 
 interface BackgroundImageProps {
   src: string;
@@ -13,34 +12,13 @@ interface BackgroundImageProps {
   priority?: boolean;
   sizes: string;
   isShowCard?: boolean;
-  getImagePlaceholder?: (src: string) => Promise<string>;
 }
 
 export default function BackgroundImage(props: BackgroundImageProps) {
 
   return (
-    <>
-      {
-        props.getImagePlaceholder ?
-          <GetBackgroundImageAsync props={props} /> :
-          <GetBackgroundImage props={props} />
-      }
-    </>
-  )
-}
-
-async function GetBackgroundImageAsync({ props }: { props: BackgroundImageProps }) {
-
-  return (
-    <GetBackgroundImage props={props} blurDataUrl={props.getImagePlaceholder ? await props.getImagePlaceholder(props.src) : undefined} />
-  )
-}
-
-function GetBackgroundImage({ props, blurDataUrl }: { props: BackgroundImageProps, blurDataUrl?: string }) {
-
-  return (
     <div className="w-full h-full absolute top-0 grain">
-      <Image src={props.src} fill className={`object-cover bg-accentcol ${props.objectPositionClass ? props.objectPositionClass : ""} saturate-150 contrast-125 brightness-110`} alt={props.alt} priority={props.priority || false} sizes={props.sizes} placeholder={blurDataUrl ? 'blur' : undefined} blurDataURL={blurDataUrl} />
+      <Image src={/*imagePlaceholders[props.src] ? imagePlaceholders[props.src] :*/props.src} fill className={`object-cover bg-accentcol ${props.objectPositionClass ? props.objectPositionClass : ""} saturate-150 contrast-125 brightness-110`} alt={props.alt} priority={props.priority || false} sizes={props.sizes} placeholder={imagePlaceholders[props.src] ? 'blur' : undefined} blurDataURL={imagePlaceholders[props.src]} />
       {!props.isShowCard && // gradient
         <>
           <div className="absolute w-full h-full bg-accentcol/30"></div>
@@ -55,4 +33,3 @@ function GetBackgroundImage({ props, blurDataUrl }: { props: BackgroundImageProp
     </div>
   )
 }
-
