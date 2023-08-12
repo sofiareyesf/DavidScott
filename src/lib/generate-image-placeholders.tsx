@@ -9,6 +9,6 @@ export async function generateImagePlaceholders(srcs: string[]) {
   for (let src of srcs) {
     let fullPath = path.join(publicFolder, src);
     const buffer = await fs.readFile(fullPath);
-    imagePlaceholders[src] = (await getPlaiceholder(buffer, { size: 8 })).base64;
+    imagePlaceholders[src] = (await getPlaiceholder(buffer, { size: 4 })).base64;
   }
 }
