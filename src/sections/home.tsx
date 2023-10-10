@@ -7,6 +7,7 @@ import { ContactPageContent, HomePageContent, Show } from '@/lib/content-types';
 import ShowCard from '@/components/show-card';
 import processShows from '@/lib/process-shows';
 import { NextShow, NextShowText } from '@/components/show-cards-ordered';
+import { convertToEmbedLink } from './videos';
 
 export default function Home({ pageText, contactPageText, allShows }: { pageText: HomePageContent, contactPageText: ContactPageContent, allShows: Show[] }) {
   
@@ -72,7 +73,7 @@ export default function Home({ pageText, contactPageText, allShows }: { pageText
               <div className="w-full aspect-[5.6/3.15] relative grain">
                 <div className="w-full h-full absolute -top-2 -left-2 border border-accentcol pointer-events-none"></div>
                 <div className="absolute bg-texttint pointer-events-none"></div>
-                <iframe width="100%" height="100%" src={pageText.featuredVideo} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="absolute" loading='lazy' />
+                <iframe width="100%" height="100%" src={convertToEmbedLink(pageText.featuredVideo)} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="absolute" loading='lazy' />
                 <div className="absolute w-full h-full bg-accentcol/20 pointer-events-none"></div>
                 <div className="absolute w-full h-full bg-bgcol/20 pointer-events-none"></div>
               </div>
