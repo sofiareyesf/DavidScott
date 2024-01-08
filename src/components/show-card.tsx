@@ -16,7 +16,7 @@ export default function ShowCard({ show }: { show: Show }) {
       <div className="flex gap-3 w-full h-full">
         <div className="aspect-[1.75/2.1] h-full relative hidden md:block">
           <div className="w-full h-full absolute -top-2 -left-2 border border-accentcol"></div>
-          <BackgroundImage src={show.image} alt={`${show.title} at {show.venue} thumbnail`} sizes="210px" isShowCard={true}  />
+          <BackgroundImage src={show.image} alt={`${show.title} at ${show.venue} thumbnail`} sizes="210px" isShowCard={true}  />
           {/* <div className="w-full h-full absolute top-0 grain">
             <Image src={show.image} fill className={`object-cover ${show.imagePosition} saturate-150 contrast-125 brightness-110`} alt={`${show.title} at {show.venue} thumbnail`} sizes="210px" />
             <div className="absolute w-full h-full bg-accentcol/20"></div>
