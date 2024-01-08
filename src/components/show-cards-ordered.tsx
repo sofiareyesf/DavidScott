@@ -20,7 +20,20 @@ export function NextShowText({ shows }: { shows: ShowWithDate[] }) {
       {
         getIndexOfNextShow({ shows }) === -1 ?
           "Recent Show" :
-          "Next Show"}
+          "Next Show"
+      }
+    </>
+  )
+}
+
+export function AllUpcomingShowsText({ shows }: { shows: ShowWithDate[] }) {
+  return (
+    <>
+      {
+        getIndexOfNextShow({ shows }) === -1 ?
+          "All Shows" :
+          "All Upcoming Shows"
+      }
     </>
   )
 }

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 type ButtonType = "Primary" | "Secondary";
 
-export default function ButtonLink({ type, text, link, widthClass, smallOnMobile }: { type: ButtonType, text: string, link: string, widthClass: string, smallOnMobile?: boolean }) {
+export default function ButtonLink({ type, text, link, widthClass, smallOnMobile }: { type: ButtonType, text: string | JSX.Element, link: string, widthClass: string, smallOnMobile?: boolean }) {
 
 
   return (

@@ -6,7 +6,7 @@ import Divider from '@/components/divider';
 import { ContactPageContent, HomePageContent, Show } from '@/lib/content-types';
 import ShowCard from '@/components/show-card';
 import processShows from '@/lib/process-shows';
-import { NextShow, NextShowText } from '@/components/show-cards-ordered';
+import { AllUpcomingShowsText, NextShow, NextShowText } from '@/components/show-cards-ordered';
 import { convertToEmbedLink } from './videos';
 
 export default function Home({ pageText, contactPageText, allShows }: { pageText: HomePageContent, contactPageText: ContactPageContent, allShows: Show[] }) {
@@ -53,17 +53,10 @@ export default function Home({ pageText, contactPageText, allShows }: { pageText
           <div className="w-full min-[650px]:w-fit min-[1100px]:basis-[58%]">
             <div className="min-[1100px]:w-[600px] flex flex-col gap-8">
               <h1 className="text-5xl min-[1060px]:text-6xl font-bold -mb-3"><NextShowText shows={shows} /></h1>
-              {/* <div className="aspectwrapper w-full aspect-[2.5/1.05]">
-              <div className="content">
-              <ShowCard show={nextShow} />
-              </div>
-            </div> */}
-              {/* <RenderCard show={nextShow} /> */}
               <div className="w-full min-[650px]:w-[600px]">
                 {ShowToDisplay}
               </div>
-              {/* <div className="max-w-[650px] aspect-[6.5/3.2] bg-bgcol"></div> */}
-              <ButtonLink type="Secondary" text="All Upcoming Shows" link="/shows" widthClass="w-[250px] lg:w-[360px]" />
+              <ButtonLink type="Secondary" text={<AllUpcomingShowsText shows={shows} />} link="/shows" widthClass="w-[250px] lg:w-[360px]" />
             </div>
           </div>
 
