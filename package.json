@@ -10,7 +10,7 @@
     "generate-admin-css": "npx tailwindcss build -i .next/static/css/app/(site)/layout.css -o public/admin/main.css"
   },
   "dependencies": {
-    "@plaiceholder/next": "^3.0.0",
+    "@plaiceholder/next": "^2.0.0",
     "@types/node": "20.3.2",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
