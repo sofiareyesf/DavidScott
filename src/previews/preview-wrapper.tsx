@@ -1,21 +1,18 @@
-import { Changa, Dancing_Script } from 'next/font/google'
+import Head from 'next/head';
 
-const changa = Changa({
-    subsets: ['latin'],
-    display: 'swap',
-    variable: '--font-changa',
-})
-
-const dancing = Dancing_Script({
-    subsets: ['latin'],
-    display: 'swap',
-    variable: '--font-dancing',
-})
-
-export default function PreviewWrapper({ ...props }: any) {
-    return (
-        <div className={`overflow-scroll ${changa.variable} ${dancing.variable} font-changa bg-bgcol text-textcol relative`}>
-            {props.children}
-        </div>
-    )
+export default function PreviewWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <Head>
+        {/* Load Google Fonts directly from CDN */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Changa&family=Dancing+Script&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <div className="overflow-scroll font-changa bg-bgcol text-textcol relative">
+        {children}
+      </div>
+    </>
+  );
 }

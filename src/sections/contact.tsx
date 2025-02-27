@@ -3,8 +3,7 @@ import { ContactPageContent } from "@/lib/content-types";
 import renderParagraph from "@/lib/render-paragraph";
 import Link from "next/link";
 import { BsEnvelope, BsInstagram, BsYoutube } from "react-icons/bs";
-import { MobileNavItems } from "@/components/nav";
-
+import MobileNavItems from "@/components/nav";  // Changed to default import
 
 export default function Contact({ pageText }: { pageText: ContactPageContent }) {
   return (
@@ -36,7 +35,7 @@ export default function Contact({ pageText }: { pageText: ContactPageContent }) 
         </div>
       </div>
       <div className="md:hidden flex flex-col items-center text-5xl font-bold gap-5 underline mb-10">
-        <MobileNavItems />
+        <MobileNavItems />  {/* No change needed here */}
       </div>
     </div>
   )

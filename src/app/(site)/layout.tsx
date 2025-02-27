@@ -1,60 +1,39 @@
 import Nav from '@/components/nav'
 import './globals.css'
-import { Changa, Dancing_Script } from 'next/font/google'
+import Head from 'next/head'  // Import the Head component from Next.js
 import Link from 'next/link'
-import { Metadata } from 'next'
-
-const changa = Changa({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-changa',
-})
-
-const dancing = Dancing_Script({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-dancing',
-})
-
-export const metadata: Metadata = {
-  title: 'Mattaus Gretzinger - Toronto based Alto Saxophonist & Composer',
-  description: "I'm a jazz musician from Toronto. Visit my website to see my upcoming shows, book me for a gig, or listen to my music!",
-  keywords: 'Mattaus Gretzinger, jazz, saxophone, sax, bass, Toronto, composer, teacher, The Rex, The Emmet Ray, mattgretz',
-  openGraph: {
-    title: 'Mattaus Gretzinger - Toronto based Alto Saxophonist & Composer',
-    description: "I'm a jazz musician from Toronto. Visit my website to see my upcoming shows, book me for a gig, or listen to my music!",
-    url: 'https://mattausgretzinger.com',
-    images: {
-      url: '/images/opengraph-image.png',
-      alt: 'Mattaus Gretzinger - Toronto based Alto Saxophonist & Composer'
-    },
-    locale: 'en_US',
-    type: 'website',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  themeColor: '#292826',
-  colorScheme: 'dark',
-  creator: 'Owen Gretzinger',
-  metadataBase: new URL('https://mattausgretzinger.com'),
-  alternates: {
-    canonical: '/',
-  },
-};
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <main className={`${changa.variable} ${dancing.variable} font-changa bg-bgcol text-textcol relative`}>
-      <Nav />
-      {children}
-      <div className="absolute bottom-2 w-full text-center">
-        <Link href="https://www.owengretzinger.com" target="_blank" className="text-textcol/30">
-          Designed & Built by Owen Gretzinger
-        </Link>
-      </div>
-
-    </main>
+    <>
+      <Head>
+        {/* Add Google Fonts */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Changa&family=Dancing+Script&display=swap"
+          rel="stylesheet"
+        />
+        
+        {/* Add metadata for SEO */}
+        <meta name="title" content="Mattaus Gretzinger - Toronto based Alto Saxophonist & Composer" />
+        <meta name="description" content="I'm a jazz musician from Toronto. Visit my website to see my upcoming shows, book me for a gig, or listen to my music!" />
+        <meta name="keywords" content="Mattaus Gretzinger, jazz, saxophone, sax, bass, Toronto, composer, teacher, The Rex, The Emmet Ray, mattgretz" />
+        <meta property="og:title" content="Mattaus Gretzinger - Toronto based Alto Saxophonist & Composer" />
+        <meta property="og:description" content="I'm a jazz musician from Toronto. Visit my website to see my upcoming shows, book me for a gig, or listen to my music!" />
+        <meta property="og:url" content="https://mattausgretzinger.com" />
+        <meta property="og:image" content="/images/opengraph-image.png" />
+        <meta name="robots" content="index, follow" />
+        <meta name="theme-color" content="#292826" />
+      </Head>
+      
+      <main className="font-changa bg-bgcol text-textcol relative">
+        <Nav />
+        {children}
+        <div className="absolute bottom-2 w-full text-center">
+          <Link href="https://www.owengretzinger.com" target="_blank" className="text-textcol/30">
+            Designed & Built by Owen Gretzinger
+          </Link>
+        </div>
+      </main>
+    </>
   )
 }
